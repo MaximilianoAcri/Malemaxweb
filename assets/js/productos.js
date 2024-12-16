@@ -2,7 +2,7 @@
 const productDetails = {
     'big-bags-general': {
         title: 'Big Bags',
-        image: '/assets/img/bolsas-01.png',
+        image: './assets/img/bolsas-01.png',
         description: `
             <p class="lead">Solución industrial de primer nivel para el almacenamiento y transporte de materiales a granel.</p>
             
@@ -36,7 +36,7 @@ const productDetails = {
     },
     'boca-abierta-fondo-cerrado': {
         title: 'Boca Abierta / Fondo Cerrado',
-        image: '/assets/img/bolsas-01.png',
+        image: './assets/img/bolsas-01.png',
         description: `
             <p class="lead">Diseño clásico ideal para carga superior y descarga por vuelco completo.</p>
             
@@ -63,7 +63,7 @@ const productDetails = {
     },
     'boca-abierta-valvula': {
         title: 'Boca Abierta / Válvula de Descarga',
-        image: '/assets/img/bolsas-03.png',
+        image: './assets/img/bolsas-03.png',
         description: `
             <p class="lead">Combinación perfecta para llenado fácil y descarga controlada.</p>
 
@@ -90,7 +90,7 @@ const productDetails = {
     },
     'valvula-carga-fondo-cerrado': {
         title: 'Válvula de Carga / Fondo Cerrado',
-        image: '/assets/img/bolsas-02.png',
+        image: './assets/img/bolsas-02.png',
         description: `
             <p class="lead">Ideal para sistemas de llenado automatizados con descarga por vuelco.</p>
 
@@ -118,7 +118,7 @@ const productDetails = {
 // ... continuación de productos anteriores ...
 'boca-pollera-fondo-cerrado': {
     title: 'Boca con Pollera / Fondo Cerrado',
-    image: '/assets/img/bolsas-05.png',
+    image: './assets/img/bolsas-05.png',
     description: `
         <p class="lead">Máxima protección superior con sistema de descarga tradicional.</p>
 
@@ -145,7 +145,7 @@ const productDetails = {
 },
 'boca-pollera-valvula': {
     title: 'Boca con Pollera / Válvula de Descarga',
-    image: '/assets/img/bolsas-06.png',
+    image: './assets/img/bolsas-06.png',
     description: `
         <p class="lead">Combina protección superior con descarga controlada.</p>
 
@@ -172,7 +172,7 @@ const productDetails = {
 },
 'valvula-carga-descarga': {
     title: 'Válvula de Carga / Válvula de Descarga',
-    image: '/assets/img/bolsas-04.png',
+    image: './assets/img/bolsas-04.png',
     description: `
         <p class="lead">Sistema completamente cerrado para máximo control y protección.</p>
 
@@ -199,7 +199,7 @@ const productDetails = {
 },
 'bulk-liner': {
     title: 'Sistema Bulk Liner',
-    image: '/assets/img/FOTOS/bulk liner.png',
+    image: './assets/img/FOTOS/bulk liner.png',
     description: `
         <p class="lead">Sistema de protección superior para envíos de productos granulados o en polvo.</p>
         
@@ -232,7 +232,7 @@ const productDetails = {
 },
 'bolsas': {
     title: 'Bolsas y Embalajes',
-    image: '/assets/img/FOTOS/Bolsareco-producto-bolsas.png',
+    image: './assets/img/FOTOS/Bolsareco-producto-bolsas.png',
     description: `
         <p class="lead">Soluciones de embalaje versátiles y económicas para diversos usos.</p>
         
@@ -264,7 +264,7 @@ const productDetails = {
 },
 'cubre-cerco': {
     title: 'Cubre Cerco',
-    image: '/assets/img/FOTOS/cerco.jpeg',
+    image: './assets/img/FOTOS/cerco.jpeg',
     description: `
         <p class="lead">Solución profesional para cerramientos perimetrales.</p>
         
@@ -294,7 +294,7 @@ const productDetails = {
 },
 'disenos-personalizados': {
     title: 'Diseños Personalizados',
-    image: '/assets/img/FOTOS/diseño.png',
+    image: './assets/img/FOTOS/diseño.png',
     description: `
         <p class="lead">Desarrollamos soluciones a medida según sus necesidades específicas.</p>
         
