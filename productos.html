@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Nuestros Productos - MaleMax</title>
+  <meta name="description" content="Soluciones especializadas en Big Bags y embalajes industriales">
+  <meta name="keywords" content="big bags, embalajes, bulk liner, bolsas industriales">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS Files -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/productos.css" rel="stylesheet">
+</head>
+
+<body class="productos-page">
+  <!-- Header -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="assets/img/malemaxlogo.png" alt=""> 
+        <img src="assets/img//lRecurso 3.png" alt="logo bi-binoculars"> 
+
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html" >Home</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li class="dropdown">
+            <a href="/productos.html"><span>Productos</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="/productos.html">Bolsas y Embalaje</a></li>
+              <li><a href="/productos.html">Bulk Linker</a></li>
+              <li><a href="/productos.html">Cubre Cerco</a></li>
+              <li class="dropdown">
+                <a href="/productos.html"><span>Big Bags</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                  <li><a href="#">Boca abierta / Fondo cerrado</a></li>
+                  <li><a href="#">Boca abierta / Válvula de descarga</a></li>
+                  <li><a href="#">Válvula de carga / Fondo cerrado</a></li>
+                  <li><a href="#">Boca con pollera / Fondo cerrado</a></li>
+                  <li><a href="#">Boca con pollera / Válvula de descarga</a></li>
+                  <li><a href="#">Válvula de carga / Válvula de descarga</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#contact">Diseño</a></li>
+          <li class="nav-cta">
+            <button class="btn-cta" data-bs-toggle="modal" data-bs-target="#serviciosModal">
+              <i class="bi bi-headset"></i>
+              Solicitar Asesoramiento
+            </button>
+          </li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <main class="main">
+    <!-- Banner del Producto -->
+    <div class="page-title dark-background">
+      <div class="container position-relative">
+        <h1>Soluciones de Embalaje Industrial</h1>
+        <p>Descubra nuestra línea completa de productos diseñados para satisfacer las necesidades más exigentes de la industria.</p>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.html">Inicio</a></li>
+            <li class="current">Productos</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Sección de Productos -->
+    <section class="productos-section">
+      <div class="container">
+
+
+        <div class="row">
+          <!-- Lista de productos (izquierda) -->
+          <div class="col-lg-4">
+            <div class="product-list">
+              <!-- Big Bags -->
+              <div class="product-category">
+                <h3 class="category-title">Big Bags</h3>
+                <div class="product-list-item" onclick="toggleCategory(event, 'big-bags-types')">
+                    <img src="/assets/img/bolsas-01.png" alt="Big Bags">
+                    <div>
+                        <h4>Big Bags</h4>
+                        <small>Información General</small>
+                    </div>
+                    <i class="bi bi-chevron-down toggle-icon"></i>
+                </div>
+                
+                <!-- Tipos de Big Bags -->
+                <div class="sub-products" id="big-bags-types" style="display: none;">
+                  <div class="product-list-item sub-item" data-product-id="boca-abierta-fondo-cerrado">
+                    <img src="/assets/img/bolsas-01.png" alt="Boca Abierta/Fondo Cerrado">
+                    <div>
+                      <h4>Boca Abierta/Fondo Cerrado</h4>
+                    </div>
+                  </div>
+
+                  <div class="product-list-item sub-item" data-product-id="boca-abierta-valvula">
+                    <img src="/assets/img/bolsas-03.png" alt="Boca Abierta/Válvula">
+                    <div>
+                      <h4>Boca Abierta/Válvula de Descarga</h4>
+                    </div>
+                  </div>
+
+                  <div class="product-list-item sub-item" data-product-id="valvula-carga-fondo-cerrado">
+                    <img src="/assets/img/bolsas-02.png" alt="Válvula de Carga/Fondo Cerrado">
+                    <div>
+                      <h4>Válvula de Carga/Fondo Cerrado</h4>
+                    </div>
+                  </div>
+
+                  <div class="product-list-item sub-item" data-product-id="boca-pollera-fondo-cerrado">
+                    <img src="/assets/img/bolsas-05.png" alt="Boca con Pollera/Fondo Cerrado">
+                    <div>
+                      <h4>Boca con Pollera/Fondo Cerrado</h4>
+                    </div>
+                  </div>
+
+                  <div class="product-list-item sub-item" data-product-id="boca-pollera-valvula">
+                    <img src="/assets/img/bolsas-06.png" alt="Boca con Pollera/Válvula">
+                    <div>
+                      <h4>Boca con Pollera/Válvula</h4>
+                    </div>
+                  </div>
+
+                  <div class="product-list-item sub-item" data-product-id="valvula-carga-descarga">
+                    <img src="/assets/img/bolsas-04.png" alt="Válvula de Carga y Descarga">
+                    <div>
+                      <h4>Válvula de Carga/Válvula de Descarga</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bulk Liner -->
+              <div class="product-category mt-4">
+                <h3 class="category-title">Bulk Liner</h3>
+                <div class="product-list-item" data-product-id="bulk-liner">
+                  <img src="/assets/img/FOTOS/bulk liner.png" alt="Bulk Liner">
+                  <div>
+                    <h4>Sistema Bulk Liner</h4>
+                    <small>Protección total para graneles</small>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bolsas -->
+              <div class="product-category mt-4">
+                <h3 class="category-title">Bolsas y Embalajes</h3>
+                <div class="product-list-item" data-product-id="bolsas">
+                  <img src="/assets/img/FOTOS/Bolsareco-producto-bolsas.png" alt="Bolsas y Embalajes">
+                  <div>
+                    <h4>Bolsas y Embalajes</h4>
+                    <small>Soluciones versátiles</small>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Cubre Cerco -->
+              <div class="product-category mt-4">
+                <h3 class="category-title">Cubre Cerco</h3>
+                <div class="product-list-item" data-product-id="cubre-cerco">
+                  <img src="/assets/img/FOTOS/cerco.jpeg" alt="Cubre Cerco">
+                  <div>
+                    <h4>Cubre Cerco</h4>
+                    <small>Cerramientos profesionales</small>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Diseños Personalizados -->
+              <div class="product-category mt-4">
+                <h3 class="category-title">Diseños Personalizados</h3>
+                <div class="product-list-item" data-product-id="disenos-personalizados">
+                  <img src="/assets/img/FOTOS/diseño.png" alt="Diseños Personalizados">
+                  <div>
+                    <h4>Soluciones a Medida</h4>
+                    <small>Desarrollos específicos</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel de detalle (derecha) -->
+          <div class="col-lg-8">
+            <div class="product-detail">
+              <div class="product-detail-content" id="product-detail">
+                <!-- El contenido se carga dinámicamente mediante JavaScript -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+    <div class="container">
+      <div class="row">
+        <!-- Logo y Descripción -->
+        <div class="col-lg-4 mb-4 mb-lg-0">
+          <h3 class="sitename">Malemax</h3>
+          <p>Soluciones de embalaje industrial de alta calidad. Fabricación nacional con estándares internacionales desde 2010.</p>
+        </div>
+  
+        <!-- Contacto -->
+        <div class="col-lg-4 mb-4 mb-lg-0">
+          <h4>Contacto</h4>
+          <ul class="footer-contact">
+            <li>
+              <i class="bi bi-geo-alt"></i>
+              <span>Buenos Aires, Argentina</span>
+            </li>
+            <li>
+              <i class="bi bi-envelope"></i>
+              <span>info@malemax.com.ar</span>
+            </li>
+            <li>
+              <i class="bi bi-telephone"></i>
+              <span>+54 11 XXXX-XXXX</span>
+            </li>
+          </ul>
+        </div>
+  
+        <!-- Horarios -->
+        <div class="col-lg-4">
+          <h4>Horarios de Atención</h4>
+          <ul class="footer-hours">
+            <li>Lunes a Viernes</li>
+            <li>8:00 - 17:00 hs</li>
+          </ul>
+        </div>
+      </div>
+  
+      <hr class="footer-divider">
+  
+      <!-- Copyright -->
+      <div class="footer-bottom">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <div class="copyright">
+              © <span id="currentYear">2024</span> <strong>Malemax</strong>. Todos los derechos reservados.
+            </div>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <div class="credits">
+              Diseñado por <a href="https://www.linkedin.com/in/maximilianoeacri/">Maximiliano Acri</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div class="whatsapp-container">
+    <a href="https://wa.me/TUNUMERODETELEFONO?text=Hola,%20me%20gustaría%20obtener%20más%20información" 
+       class="whatsapp-btn" 
+       target="_blank"
+       rel="noopener noreferrer">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+    <span class="whatsapp-tooltip">¿En qué podemos ayudarte?</span>
+</div>
+
+  <!-- Scroll Top Button -->
+  <a href="#" id="scroll-top" class="scroll-top">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/productos.js"></script>
+</body>
+</html>
