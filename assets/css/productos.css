@@ -1,6 +1,6 @@
 /* Estilos para la página de productos */
 .page-title {
-    background: linear-gradient(rgba(0, 0, 0, 0.349), rgba(0, 0, 0, 0.123)), url('/assets/img/fotospro/Foto\ 10.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.349), rgba(0, 0, 0, 0.123)), url('assets/img/fotospro/Foto\ 10.jpg');
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
