@@ -161,6 +161,93 @@ h6 {
     transition: 0.3s;
   }
 
+  /* Agregar después de los estilos existentes del .navmenu a */
+.navmenu a {
+  position: relative;
+}
+
+.navmenu a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-color);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.navmenu a:hover::after,
+.navmenu .active::after {
+  width: 30px;
+}
+
+/* Modificar el hover existente */
+.navmenu li:hover>a,
+.navmenu .active,
+.navmenu .active:focus {
+  transform: translateY(-2px);
+}
+
+/* Estilos para el dropdown */
+.navmenu .dropdown ul {
+  /* Mantener los estilos existentes y agregar: */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navmenu .dropdown ul a::after {
+  left: 20px;
+  bottom: 5px;
+  transform: translateX(0);
+}
+
+.navmenu .dropdown ul a:hover::after {
+  width: 20px;
+}
+
+/* Mejorar el botón CTA */
+.btn-cta {
+  background: linear-gradient(135deg, var(--accent-color) 0%, var(--nav-hover-color) 100%);
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--nav-hover-color) 0%, var(--accent-color) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-cta:hover::before {
+  opacity: 0;
+}
+
+/* Mobile Nav Indicator */
+@media (max-width: 1199px) {
+  .navmenu a::after {
+    left: 0;
+    bottom: auto;
+    top: 50%;
+    width: 3px;
+    height: 0;
+    transform: translateY(-50%);
+  }
+
+  .navmenu a:hover::after,
+  .navmenu .active::after {
+    width: 3px;
+    height: 20px;
+  }
+}
   .navmenu li:hover>a,
   .navmenu .active,
   .navmenu .active:focus {
@@ -2360,14 +2447,25 @@ section,
     color: #fff;
     margin-bottom: 80px;
   }
+  /* Header con efecto parallax */
+  .diseño-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.603), rgba(0, 0, 0, 0.404)), url('/assets/img/fotospro/Foto\ 19.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    padding: 120px 0;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 80px;
+  }
   
   .about-title {
     font-size: 4rem;
     font-weight: 800;
     margin-bottom: 15px;
     color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px #333;
   }
   
   .about-subtitle {
@@ -2394,6 +2492,7 @@ section,
     font-size: 3rem;
     font-weight: 700;
     color: #c50d0d;
+    text-shadow: 0 0 2px #222;
     margin-bottom: 10px;
   }
   
@@ -3256,7 +3355,7 @@ section,
 }
 
 /* Call to Action específico para diseño */
-.call-to-action {
+.call-to-actiondiseño {
   background: linear-gradient(rgba(42, 44, 57, 0.9), rgba(197, 13, 13, 0.9)),
               url('/assets/img/fotospro/Foto\ 3.jpg');
   background-size: cover;
@@ -3265,13 +3364,14 @@ section,
   color: #fff;
 }
 
-.call-to-action h2 {
+.call-to-actiondiseño h2 {
+  color:#fff;
   font-size: 32px;
   font-weight: 700;
   margin-bottom: 20px;
 }
 
-.call-to-action p {
+.call-to-actiondiseño p {
   font-size: 18px;
   opacity: 0.9;
   margin: 0;
@@ -3301,11 +3401,11 @@ section,
     grid-template-columns: repeat(2, 1fr);
   }
   
-  .call-to-action {
+  .call-to-actiondiseño {
     text-align: center;
   }
   
-  .call-to-action .cta-button {
+  .call-to-actiondiseño .cta-button {
     margin-top: 30px;
   }
 }
@@ -3319,7 +3419,7 @@ section,
     grid-template-columns: 1fr;
   }
   
-  .call-to-action h2 {
+  .call-to-actiondiseño h2 {
     font-size: 28px;
   }
 }
