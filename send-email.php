@@ -1,44 +1,63 @@
 <?php
-header('Content-Type: application/json');
-
-// Obtener datos del formulario
-$data = json_decode(file_get_contents('php://input'), true);
-
-// Email de destino (tu email)
-$to = "ventas@malemaxsa.com";
-
-// Preparar asunto según tipo de formulario
-$subject = $data['tipo'] === 'cotizacion' ? 'Nueva Solicitud de Cotización' : 'Nueva Solicitud de Asesoramiento';
-
-// Construir el cuerpo del email
-$message = "Detalles de la solicitud:\n\n";
-$message .= "Nombre: " . $data['nombre'] . "\n";
-$message .= "Email: " . $data['email'] . "\n";
-$message .= "Teléfono: " . $data['telefono'] . "\n";
-$message .= "Empresa: " . $data['empresa'] . "\n";
-
-if ($data['tipo'] === 'cotizacion') {
-    $message .= "Producto: " . $data['producto'] . "\n";
-} else {
-    $message .= "Tipo de Asesoramiento: " . $data['tipoAsesoria'] . "\n";
-}
-
-$message .= "\nMensaje:\n" . $data['mensaje'];
-
-// Headers del email
-$headers = "From: " . $data['email'] . "\r\n";
-$headers .= "Reply-To: " . $data['email'] . "\r\n";
-$headers .= "X-Mailer: PHP/" . phpversion();
-
-// Enviar email
-try {
-    if (mail($to, $subject, $message, $headers)) {
-        echo json_encode(['success' => true, 'message' => 'Email enviado correctamente']);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Datos del formulario
+    $formType = $_POST['formType']; // 'cotizacion' o 'asesoria'
+    $nombre = $_POST['nombre'];
+    $email = $_POST['email'];
+    $empresa = $_POST['empresa'];
+    $telefono = $_POST['telefono'];
+    
+    // Email de destino
+    $para = "ventas@malemaxsrl.com"; // Reemplaza con tu email
+    
+    // Configurar asunto y contenido según el tipo de formulario
+    if ($formType === 'cotizacion') {
+        $producto = $_POST['producto'];
+        $mensaje = $_POST['mensaje'];
+        
+        $asunto = "Nueva solicitud de cotización";
+        $contenido = "SOLICITUD DE COTIZACIÓN\n\n";
+        $contenido .= "Nombre: " . $nombre . "\n";
+        $contenido .= "Email: " . $email . "\n";
+        $contenido .= "Empresa: " . $empresa . "\n";
+        $contenido .= "Teléfono: " . $telefono . "\n";
+        $contenido .= "Producto: " . $producto . "\n\n";
+        $contenido .= "Especificaciones y cantidades:\n" . $mensaje;
     } else {
-        throw new Exception('Error al enviar el email');
+        $tipo = $_POST['tipo'];
+        $consulta = $_POST['consulta'];
+        
+        $asunto = "Nueva solicitud de asesoramiento técnico";
+        $contenido = "SOLICITUD DE ASESORAMIENTO\n\n";
+        $contenido .= "Nombre: " . $nombre . "\n";
+        $contenido .= "Email: " . $email . "\n";
+        $contenido .= "Empresa: " . $empresa . "\n";
+        $contenido .= "Teléfono: " . $telefono . "\n";
+        $contenido .= "Tipo de asesoramiento: " . $tipo . "\n\n";
+        $contenido .= "Consulta:\n" . $consulta;
     }
-} catch (Exception $e) {
-    http_response_code(500);
-    echo json_encode(['success' => false, 'message' => $e->getMessage()]);
+    
+    // Cabeceras del email
+    $cabeceras = "From: " . $email . "\r\n";
+    $cabeceras .= "Reply-To: " . $email . "\r\n";
+    $cabeceras .= "X-Mailer: PHP/" . phpversion();
+    
+    // Enviar el email
+    if(mail($para, $asunto, $contenido, $cabeceras)) {
+        $respuesta = array(
+            'status' => 'success',
+            'message' => '¡Mensaje enviado correctamente!'
+        );
+    } else {
+        $respuesta = array(
+            'status' => 'error',
+            'message' => 'Hubo un error al enviar el mensaje.'
+        );
+    }
+    
+    // Devolver respuesta como JSON
+    header('Content-Type: application/json');
+    echo json_encode($respuesta);
+    exit;
 }
 ?>

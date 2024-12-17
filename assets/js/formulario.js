@@ -1,76 +1,77 @@
-// Función para enviar formulario
-function enviarFormulario(formId, tipo) {
+// Función para manejar el envío de formularios
+function handleFormSubmit(formId, formType) {
     const form = document.getElementById(formId);
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const originalText = submitBtn.innerHTML;
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Mostrar indicador de carga
+        const submitBtn = this.querySelector('.btn-submit');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Enviando...';
+        submitBtn.disabled = true;
 
-    // Deshabilitar botón y mostrar loading
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> Enviando...';
+        // Recoger los datos del formulario
+        const formData = new FormData();
+        formData.append('formType', formType);
+        formData.append('nombre', this.querySelector(`#${formType}-nombre`).value);
+        formData.append('email', this.querySelector(`#${formType}-email`).value);
+        formData.append('empresa', this.querySelector(`#${formType}-empresa`).value);
+        formData.append('telefono', this.querySelector(`#${formType}-telefono`).value);
 
-    // Preparar datos
-    const formData = {
-        tipo: tipo,
-        nombre: form.querySelector('[id$="-nombre"]').value,
-        email: form.querySelector('[id$="-email"]').value,
-        empresa: form.querySelector('[id$="-empresa"]').value,
-        telefono: form.querySelector('[id$="-telefono"]').value,
-        mensaje: form.querySelector('[id$="-mensaje"]').value
-    };
+        if (formType === 'cotizacion') {
+            formData.append('producto', this.querySelector('#cotizacion-producto').value);
+            formData.append('mensaje', this.querySelector('#cotizacion-mensaje').value);
+        } else {
+            formData.append('tipo', this.querySelector('#asesoria-tipo').value);
+            formData.append('consulta', this.querySelector('#asesoria-consulta').value);
+        }
 
-    // Agregar campos específicos según el tipo de formulario
-    if (tipo === 'cotizacion') {
-        formData.producto = form.querySelector('#cotizacion-producto').value;
-    } else {
-        formData.tipoAsesoria = form.querySelector('#asesoria-tipo').value;
-    }
-
-    // Enviar formulario
-    fetch('send-email.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
+        // Enviar los datos
+        fetch('https://malemaxsrl.com/send-email.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                // Mostrar mensaje de éxito
+                Swal.fire({
+                    icon: 'success',
+                    title: '¡Mensaje enviado!',
+                    text: 'Nos pondremos en contacto contigo pronto.',
+                    confirmButtonColor: '#c50d0d'
+                });
+                
+                // Limpiar el formulario
+                form.reset();
+                
+                // Cerrar el modal
+                const modal = bootstrap.Modal.getInstance(document.getElementById('serviciosModal'));
+                modal.hide();
+            } else {
+                throw new Error(data.message);
+            }
+        })
+        .catch(error => {
+            // Mostrar mensaje de error
             Swal.fire({
-                icon: 'success',
-                title: '¡Mensaje enviado!',
-                text: tipo === 'cotizacion' ? 
-                      'Te enviaremos la cotización a la brevedad.' : 
-                      'Un asesor se pondrá en contacto contigo pronto.',
+                icon: 'error',
+                title: 'Error',
+                text: 'Hubo un problema al enviar el mensaje. Por favor, intenta nuevamente.',
                 confirmButtonColor: '#c50d0d'
             });
-            form.reset();
-        } else {
-            throw new Error(data.message || 'Error al enviar el mensaje');
-        }
-    })
-    .catch(error => {
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Hubo un error al enviar el mensaje. Por favor intenta nuevamente.',
-            confirmButtonColor: '#c50d0d'
+        })
+        .finally(() => {
+            // Restaurar el botón
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
         });
-        console.error('Error:', error);
-    })
-    .finally(() => {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalText;
     });
 }
 
-// Event Listeners
-document.getElementById('formCotizacion').addEventListener('submit', function(e) {
-    e.preventDefault();
-    enviarFormulario('formCotizacion', 'cotizacion');
-});
-
-document.getElementById('formAsesoria').addEventListener('submit', function(e) {
-    e.preventDefault();
-    enviarFormulario('formAsesoria', 'asesoria');
+// Inicializar los manejadores de formularios
+document.addEventListener('DOMContentLoaded', function() {
+    handleFormSubmit('formCotizacion', 'cotizacion');
+    handleFormSubmit('formAsesoria', 'asesoria');
 });
