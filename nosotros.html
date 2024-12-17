@@ -40,23 +40,23 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html" >Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="nosotros.html">Nosotros</a></li>
           <li class="dropdown">
             <a href="productos.html"><span>Productos</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="productos.html">Bolsas y Embalaje</a></li>
-              <li><a href="productos.html">Bulk Linker</a></li>
-              <li><a href="productos.html">Cubre Cerco</a></li>
+              <li><a href="productos.html#bolsas">Bolsas y Embalaje</a></li>
+              <li><a href="productos.html#bulk-liner">Bulk Liner</a></li>
+              <li><a href="productos.html#cubre-cerco">Cubre Cerco</a></li>
               <li class="dropdown">
-                <a href="productos.html"><span>Big Bags</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <a href="productos.html#big-bags"><span>Big Bags</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                 <ul>
-                  <li><a href="productos.html">Boca abierta / Fondo cerrado</a></li>
-                  <li><a href="productos.html">Boca abierta / Válvula de descarga</a></li>
-                  <li><a href="productos.html">Válvula de carga / Fondo cerrado</a></li>
-                  <li><a href="productos.html">Boca con pollera / Fondo cerrado</a></li>
-                  <li><a href="productos.html">Boca con pollera / Válvula de descarga</a></li>
-                  <li><a href="productos.html">Válvula de carga / Válvula de descarga</a></li>
+                  <li><a href="productos.html#product-boca-abierta-fondo-cerrado">Boca abierta / Fondo cerrado</a></li>
+                  <li><a href="productos.html#product-boca-abierta-valvula">Boca abierta / Válvula de descarga</a></li>
+                  <li><a href="productos.html#product-valvula-carga-fondo-cerrado">Válvula de carga / Fondo cerrado</a></li>
+                  <li><a href="productos.html#product-boca-pollera-fondo-cerrado">Boca con pollera / Fondo cerrado</a></li>
+                  <li><a href="productos.html#product-boca-pollera-valvula">Boca con pollera / Válvula de descarga</a></li>
+                  <li><a href="productos.html#product-valvula-carga-descarga">Válvula de carga / Válvula de descarga</a></li>
                 </ul>
               </li>
             </ul>
@@ -291,65 +291,89 @@
 
   </main>
 
-  <footer id="footer" class="footer dark-background">
-    <div class="container">
-      <div class="row">
-        <!-- Logo y Descripción -->
-        <div class="col-lg-4 mb-4 mb-lg-0">
-          <h3 class="sitename">Malemax</h3>
-          <p>Soluciones de embalaje industrial de alta calidad. Fabricación nacional con estándares internacionales desde 2010.</p>
-        </div>
+  <footer id="footer" class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row gy-4">
+          <!-- Company Info & Logo -->
+          <div class="col-lg-4 col-md-12 footer-info">
+            <div class="footer-logo mb-4">
+              <img src="./assets/img/malemaxlogo.png" alt="Malemax Logo" class="img-fluid" width="180">
+            </div>
+            <p class="company-description">
+              Soluciones de embalaje industrial de alta calidad. Líderes en fabricación nacional 
+              con estándares internacionales desde 2010, comprometidos con la excelencia y la innovación.
+            </p>
+
+          </div>
   
-        <!-- Contacto -->
-        <div class="col-lg-4 mb-4 mb-lg-0">
-          <h4>Contacto</h4>
-          <ul class="footer-contact">
-            <li>
-              <i class="bi bi-geo-alt"></i>
-              <span>Buenos Aires, Argentina</span>
-            </li>
-            <li>
-              <i class="bi bi-envelope"></i>
-              <span>info@malemax.com.ar</span>
-            </li>
-            <li>
-              <i class="bi bi-telephone"></i>
-              <span>+54 11 XXXX-XXXX</span>
-            </li>
-          </ul>
-        </div>
+          <!-- Contact Information -->
+          <div class="col-lg-4 col-md-6 footer-contact">
+            <h4>Información de Contacto</h4>
+            <ul class="contact-list">
+              <li>
+                <i class="bi bi-geo-alt"></i>
+                <div class="contact-info">
+                  <strong>Dirección:</strong>
+                  <p>Buenos Aires, Argentina</p>
+                </div>
+              </li>
+              <li>
+                <i class="bi bi-envelope"></i>
+                <div class="contact-info">
+                  <strong>Email:</strong>
+                  <p><a href="mailto:ventas@malemaxsa.com">ventas@malemaxsa.com</a></p>
+                </div>
+              </li>
+              <li>
+                <i class="bi bi-telephone"></i>
+                <div class="contact-info">
+                  <strong>Teléfono:</strong>
+                  <p><a href="tel:+541112345678">+54 9 11-3591-6710</a></p>
+                </div>
+              </li>
+            </ul>
+          </div>
   
-        <!-- Horarios -->
-        <div class="col-lg-4">
-          <h4>Horarios de Atención</h4>
-          <ul class="footer-hours">
-            <li>Lunes a Viernes</li>
-            <li>8:00 - 17:00 hs</li>
-          </ul>
+          <!-- Business Hours -->
+          <div class="col-lg-4 col-md-6 footer-hours">
+            <h4>Horarios de Atención</h4>
+            <div class="business-hours">
+              <div class="hours-block">
+                <h5>Lunes a Viernes</h5>
+                <p><i class="bi bi-clock"></i> 8:00 - 17:00 hs</p>
+              </div>
+              <div class="hours-note mt-3">
+                <i class="bi bi-info-circle"></i>
+                <span>Consultas fuera de horario vía email</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
   
-      <hr class="footer-divider">
-  
-      <!-- Copyright -->
-      <div class="footer-bottom">
+    <div class="footer-bottom">
+      <div class="container">
         <div class="row align-items-center">
           <div class="col-md-6">
             <div class="copyright">
               © <span id="currentYear">2024</span> <strong>Malemax</strong>. Todos los derechos reservados.
             </div>
           </div>
-          <div class="col-md-6 text-md-end">
+          <div class="col-md-6">
             <div class="credits">
-              Diseñado por <a href="https://www.linkedin.com/in/maximilianoeacri/">Maximiliano Acri</a>
+              Diseñado por <a href="https://www.linkedin.com/in/maximilianoeacri/" target="_blank" rel="noopener">Maximiliano Acri</a>
             </div>
           </div>
         </div>
       </div>
     </div>
   </footer>
+
+
   <div class="whatsapp-container">
-    <a href="https://wa.me/TUNUMERODETELEFONO?text=Hola,%20me%20gustaría%20obtener%20más%20información" 
+    <a href="https://wa.me/5491135916710?text=Hola,%20me%20gustaría%20obtener%20más%20información" 
        class="whatsapp-btn" 
        target="_blank"
        rel="noopener noreferrer">

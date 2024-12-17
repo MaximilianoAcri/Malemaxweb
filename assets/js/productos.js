@@ -294,7 +294,7 @@ const productDetails = {
 },
 'disenos-personalizados': {
     title: 'Diseños Personalizados',
-    image: './assets/img/FOTOS/diseño.png',
+    image: '/assets/img/FOTOS/diseño.png',
     description: `
         <p class="lead">Desarrollamos soluciones a medida según sus necesidades específicas.</p>
         

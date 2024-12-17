@@ -444,115 +444,229 @@ h6 {
 # Global Footer
 --------------------------------------------------------------*/
 .footer {
+  background-color: #1f2937;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 15px;
+  position: relative;
+}
+
+.footer-top {
   padding: 60px 0 30px;
-  background-color: #2a2c39;
-  color: rgba(255, 255, 255, 0.8);
 }
 
-.footer .sitename {
-  font-size: 24px;
-  margin-bottom: 20px;
-  font-weight: 700;
+/* Logo and Company Info */
+.footer-logo {
+  margin-bottom: 25px;
+}
+
+.footer-logo img {
+  max-width: 180px;
+  height: auto;
+}
+
+.company-description {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  background: #dc2626;
   color: #fff;
+  transform: translateY(-3px);
 }
 
+/* Section Headers */
 .footer h4 {
   font-size: 18px;
   font-weight: 600;
-  color: #fff;
-  margin-bottom: 20px;
   position: relative;
-  padding-bottom: 10px;
+  padding-bottom: 12px;
+  margin-bottom: 25px;
+  color: #fff;
 }
 
 .footer h4::after {
   content: '';
   position: absolute;
-  bottom: 0;
   left: 0;
-  width: 50px;
+  bottom: 0;
+  width: 30px;
   height: 2px;
-  background: #c50d0d;
+  background: #dc2626;
 }
 
-.footer p {
-  font-size: 14px;
-  line-height: 1.8;
-  margin-bottom: 0;
-}
-
-.footer-contact,
-.footer-hours {
+/* Contact List */
+.contact-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.footer-contact li {
+.contact-list li {
   display: flex;
-  align-items: center;
-  margin-bottom: 15px;
+  align-items: flex-start;
+  margin-bottom: 20px;
 }
 
-.footer-contact i {
+.contact-list i {
   font-size: 18px;
-  color: #c50d0d;
-  margin-right: 10px;
-  width: 20px;
+  color: #dc2626;
+  margin-right: 15px;
+  margin-top: 3px;
+}
+
+.contact-info {
+  flex: 1;
+}
+
+.contact-info strong {
+  display: block;
+  color: #fff;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.contact-info p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-info a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+  color: #dc2626;
+}
+
+/* Business Hours */
+.business-hours {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.hours-block h5 {
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.hours-block p {
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.hours-block i {
+  color: #dc2626;
+  margin-right: 8px;
+}
+
+.hours-note {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.hours-note i {
+  color: #dc2626;
+  margin-right: 8px;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  padding: 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
 }
 
-.footer-hours li {
-  margin-bottom: 10px;
-  font-size: 14px;
-}
-
-.footer-divider {
-  margin: 40px 0 30px;
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
-.footer-bottom {
-  font-size: 14px;
-}
-
 .copyright {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .credits {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.7);
+  text-align: right;
 }
 
 .credits a {
   color: #fff;
-  transition: 0.3s;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .credits a:hover {
-  color: #c50d0d;
+  color: #dc2626;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .footer-top {
+    padding: 40px 0 20px;
+  }
 }
 
 @media (max-width: 768px) {
-  .footer {
+  .footer-contact,
+  .footer-hours {
+    margin-top: 30px;
+  }
+  
+  .credits {
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .copyright {
     text-align: center;
   }
+}
 
+@media (max-width: 576px) {
+  .footer-top {
+    padding: 30px 0 10px;
+  }
+  
+  .social-links {
+    justify-content: center;
+  }
+  
   .footer h4::after {
     left: 50%;
     transform: translateX(-50%);
   }
-
-  .footer-contact li {
-    justify-content: center;
-  }
-
-  .footer-bottom {
+  
+  .contact-list li {
+    flex-direction: column;
+    align-items: center;
     text-align: center;
   }
-
-  .credits {
-    margin-top: 10px;
+  
+  .contact-list i {
+    margin: 0 0 10px 0;
+  }
+  
+  .contact-info {
+    text-align: center;
   }
 }
 
@@ -601,40 +715,89 @@ h6 {
   }
 }
 
-/*--------------------------------------------------------------
-# Scroll Top Button
---------------------------------------------------------------*/
+
+/* Scroll Top Button */
 .scroll-top {
   position: fixed;
-  visibility: hidden;
-  opacity: 0;
   right: 15px;
-  bottom: -15px;
-  z-index: 99999;
-  background-color: var(--accent-color);
+  bottom: -80px;
   width: 44px;
   height: 44px;
-  border-radius: 50px;
-  transition: all 0.4s;
-}
-
-.scroll-top i {
+  background: #dc2626;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 24px;
-  color: var(--contrast-color);
-  line-height: 0;
-}
-
-.scroll-top:hover {
-  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
-  color: var(--contrast-color);
+  cursor: pointer;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: 0 2px 15px rgba(220, 38, 38, 0.2);
+  transition: all 0.3s ease-in-out;
 }
 
 .scroll-top.active {
-  visibility: visible;
-  opacity: 1;
   bottom: 15px;
+  opacity: 1;
+  visibility: visible;
 }
 
+.scroll-top i {
+  line-height: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.scroll-top:hover {
+  background: #e03a3a;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 20px rgba(220, 38, 38, 0.3);
+}
+
+/* Animation for the arrow icon */
+.scroll-top i {
+  animation: scrollTop 1.5s ease infinite;
+}
+
+@keyframes scrollTop {
+  0% {
+    transform: translateY(2px);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+  100% {
+    transform: translateY(2px);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .scroll-top {
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+  }
+  
+  .scroll-top.active {
+    bottom: 15px;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-top {
+    transition: none;
+  }
+  
+  .scroll-top i {
+    animation: none;
+  }
+}
 /*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
 --------------------------------------------------------------*/
@@ -1074,6 +1237,7 @@ section,
   box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 
+/* Button Styles */
 .accordion-button {
   padding: 20px 25px;
   font-size: 16px;
@@ -1090,20 +1254,27 @@ section,
   box-shadow: none;
 }
 
+/* Fix for the double arrow issue */
 .accordion-button::after {
-  font-family: "bootstrap-icons";
-  content: "\f282";
-  background-image: none;
+  background-image: none !important;
+  font-family: "bootstrap-icons" !important;
+  content: "\f282" !important;
   font-size: 1.2rem;
   color: #c50d0d;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
 }
 
 .accordion-button:not(.collapsed)::after {
-  content: "\f286";
-  transform: rotate(0deg);
+  content: "\f286" !important;
+  transform: rotate(0) !important;
 }
 
+/* Left border indicator */
 .accordion-button::before {
   content: '';
   position: absolute;
@@ -1118,6 +1289,13 @@ section,
 
 .accordion-button:not(.collapsed)::before {
   transform: scaleY(1);
+}
+
+/* Remove default focus styles */
+.accordion-button:focus {
+  border-color: transparent;
+  box-shadow: none;
+  outline: none;
 }
 
 .accordion-body {
@@ -1169,6 +1347,10 @@ section,
     padding: 15px 20px;
   }
 
+  .accordion-button::after {
+    font-size: 1.1rem;
+  }
+
   .accordion-body {
     padding: 0 20px 20px;
     font-size: 14px;
@@ -1199,6 +1381,21 @@ section,
 
   .accordion-body {
     padding: 0 15px 15px;
+  }
+}
+
+/* Prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .accordion-item {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  
+  .accordion-button::after,
+  .accordion-item,
+  .accordion-button::before {
+    transition: none;
   }
 }
 
@@ -1898,189 +2095,231 @@ section,
   }
 }
   
-  /*--------------------------------------------------------------
-  # Hero Section
-  --------------------------------------------------------------*/
-  .hero {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: center;
-    min-height: 75vh;
-  }
-  
-  /* Video de fondo */
-  .hero-video-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 1;
-  }
-  
-  .hero-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -20%);
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: cover;
-  }
-  
-  /* Overlay oscuro */
-  .hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.596), rgba(0, 0, 0, 0.356));
-    z-index: 1;
-  }
-  
-  /* Contenedor del carousel */
-  .hero .carousel-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    position: relative;
-    min-height: 75vh;
-    padding-top: 60px;
-    z-index: 5;
-  }
-  
-  .hero h2 {
-    margin-bottom: 30px;
-    font-size: 48px;
-    font-weight: 700;
-    color: #fff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    z-index: 1;
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+.hero {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  min-height: clamp(60vh, 75vh, 100vh);
+}
 
+/* Video Background */
+.hero-video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.hero-video {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Dark Overlay */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
+  z-index: 2;
+}
+
+/* Carousel Container */
+.hero .carousel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+  min-height: clamp(60vh, 75vh, 100vh);
+  padding: clamp(40px, 8vw, 60px) clamp(20px, 5vw, 40px);
+  z-index: 5;
+  width: 100%;
+}
+
+.hero h2 {
+  margin-bottom: clamp(20px, 4vw, 30px);
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  padding: 0 clamp(10px, 3vw, 20px);
+}
+
+.hero h2 span {
+  text-decoration: underline;
+}
+
+.hero p {
+  width: 100%;
+  max-width: min(80%, 800px);
+  animation-delay: 0.4s;
+  margin: 0 auto clamp(20px, 4vw, 30px);
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  font-size: clamp(14px, 2vw, 16px);
+  padding: 0 clamp(10px, 3vw, 20px);
+}
+
+/* Carousel Controls */
+.hero .carousel-control-prev,
+.hero .carousel-control-next {
+  width: clamp(5%, 8%, 10%);
+  z-index: 6;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.hero .carousel-control-prev:hover,
+.hero .carousel-control-next:hover {
+  opacity: 1;
+}
+
+.hero .carousel-control-next-icon,
+.hero .carousel-control-prev-icon {
+  background: none;
+  font-size: clamp(24px, 4vw, 48px);
+  line-height: 1;
+  width: auto;
+  height: auto;
+}
+
+/* Call to Action Button */
+.hero .btn-get-started {
+  font-weight: 500;
+  font-size: clamp(14px, 2vw, 16px);
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: clamp(10px, 2vw, 12px) clamp(24px, 4vw, 32px);
+  border-radius: 50px;
+  transition: 0.3s ease;
+  line-height: 1;
+  margin: clamp(5px, 2vw, 10px);
+  animation-delay: 0.8s;
+  color: var(--default-color);
+  border: 2px solid var(--accent-color);
+  position: relative;
+  z-index: 5;
+  white-space: nowrap;
+}
+
+/* Waves */
+.hero .hero-waves {
+  display: block;
+  width: 100%;
+  height: clamp(40px, 8vw, 60px);
+  position: relative;
+  z-index: 7;
+}
+
+.hero .wave1 use {
+  animation: move-forever1 10s linear infinite;
+  animation-delay: -2s;
+  fill: var(--default-color);
+  opacity: 0.6;
+}
+
+.hero .wave2 use {
+  animation: move-forever2 8s linear infinite;
+  animation-delay: -2s;
+  fill: var(--default-color);
+  opacity: 0.4;
+}
+
+.hero .wave3 use {
+  animation: move-forever3 6s linear infinite;
+  animation-delay: -2s;
+  fill: var(--default-color);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+  .hero-video {
+    /* Ensure video fills mobile screen properly */
+    height: 100%;
+    width: 100%;
+    object-position: center;
   }
   
-  .hero h2 span {
-    text-decoration: underline;
-  }
-  
-  .hero p {
-    max-width: 80%;
-    animation-delay: 0.4s;
-    margin: 0 auto 30px auto;
-    color: #fff;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  .hero .carousel-container {
+    padding-top: 80px; /* Account for mobile header */
   }
   
   .hero .carousel-control-prev,
   .hero .carousel-control-next {
-    width: 10%;
-    z-index: 6;
+    display: none; /* Optional: hide controls on mobile */
+  }
+}
+
+@media (orientation: landscape) and (max-height: 576px) {
+  .hero {
+    min-height: 100vh; /* Ensure full height in landscape */
   }
   
-  .hero .carousel-control-next-icon,
-  .hero .carousel-control-prev-icon {
-    background: none;
-    font-size: 48px;
-    line-height: 1;
-    width: auto;
-    height: auto;
+  .hero .carousel-container {
+    padding-top: 60px;
+    justify-content: center;
+  }
+  
+  .hero h2 {
+    font-size: clamp(24px, 4vw, 32px);
+    margin-bottom: 15px;
+  }
+  
+  .hero p {
+    margin-bottom: 15px;
+  }
+}
+
+/* Prefers Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero .wave1 use,
+  .hero .wave2 use,
+  .hero .wave3 use {
+    animation: none;
   }
   
   .hero .btn-get-started {
-    font-weight: 500;
-    font-size: 14px;
-    letter-spacing: 1px;
-    display: inline-block;
-    padding: 12px 32px;
-    border-radius: 50px;
-    transition: 0.5s;
-    line-height: 1;
-    margin: 10px;
-    animation-delay: 0.8s;
-    color: var(--default-color);
-    border: 2px solid var(--accent-color);
-    position: relative;
-    z-index: 5;
+    transition: none;
   }
-  
-  .hero .btn-get-started:hover {
-    background: var(--accent-color);
-    color: var(--contrast-color);
-    text-decoration: none;
-  }
-  
-  /* Olas */
-  .hero .hero-waves {
-    display: block;
-    width: 100%;
-    height: 60px;
-    position: relative;
-    z-index: 7;
-  }
-  
-  .hero .wave1 use {
-    animation: move-forever1 10s linear infinite;
-    animation-delay: -2s;
-    fill: var(--default-color);
-    opacity: 0.6;
-  }
-  
-  .hero .wave2 use {
-    animation: move-forever2 8s linear infinite;
-    animation-delay: -2s;
-    fill: var(--default-color);
-    opacity: 0.4;
-  }
-  
-  .hero .wave3 use {
-    animation: move-forever3 6s linear infinite;
-    animation-delay: -2s;
-    fill: var(--default-color);
-  }
-  
-  /* Responsive */
-  @media (min-width: 1024px) {
-    .hero p {
-      max-width: 60%;
-    }
-  
-    .hero .carousel-control-prev,
-    .hero .carousel-control-next {
-      width: 5%;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .hero .carousel-container {
-      min-height: 90vh;
-    }
-  
-    .hero h2 {
-      font-size: 28px;
-    }
-    
-    .hero-video-container {
-      display: none;
-    }
-    
-    .hero {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.596), rgba(0, 0, 0, 0.356)),
-                        url(../img/fotospro/Foto\ 19.jpg);
-      background-size: cover;
-      background-position: center;
-    }
-  }
+}
+
+/* Animation Keyframes */
+@keyframes move-forever1 {
+  0% { transform: translate(85px, 0%); }
+  100% { transform: translate(-90px, 0%); }
+}
+
+@keyframes move-forever2 {
+  0% { transform: translate(-90px, 0%); }
+  100% { transform: translate(85px, 0%); }
+}
+
+@keyframes move-forever3 {
+  0% { transform: translate(-90px, 0%); }
+  100% { transform: translate(85px, 0%); }
+}
   
   /* Animaciones de las olas */
   @keyframes move-forever1 {
