@@ -1946,7 +1946,7 @@ section,
 /* Ajustes para pantallas muy pequeñas */
 @media screen and (max-width: 480px) {
   .assistant-container {
-      bottom: 80px;
+      bottom: 60px;
       right: 15px;
   }
   
@@ -1967,7 +1967,17 @@ section,
       min-width: 180px;
       right: 0;
   }
+  
+  .icon-container {
+    position: relative;
+    height: 35px;
+    width: 30px;
+    right: -3px;
+  }
+
 }
+
+
 
 /* Ajuste para tablets */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
