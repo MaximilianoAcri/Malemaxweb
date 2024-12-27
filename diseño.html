@@ -349,59 +349,61 @@
         </div>
     </section>
 
-    <!-- Sección de Capacidades -->
-    <section class="capabilities-section" data-aos="fade-up">
-        <div class="container">
-            <div class="section-badge">Capacidades Técnicas</div>
-            <h3>Nuestras Herramientas</h3>
-            
-            <div class="capabilities-grid">
-                <div class="capability-card">
-                    <i class="bi bi-printer"></i>
-                    <h4>Impresión</h4>
-                    <ul>
-                        <li>Hasta 8 colores</li>
-                        <li>Alta definición</li>
-                        <li>Tintas especiales</li>
-                        <li>Acabados personalizados</li>
-                    </ul>
-                </div>
+<!-- Sección de Capacidades -->
+<section class="capabilities-section" data-aos="fade-up">
+  <div class="container">
+      <div class="section-badge">Capacidades Técnicas</div>
+      <h3>Nuestras Herramientas</h3>
+      
+      <div class="capabilities-grid">
+          <div class="capability-card">
+              <i class="bi bi-printer"></i>
+              <h4>Impresión</h4>
+              <ul>
+                  <li>Hasta 8 colores</li>
+                  <li>Alta definición</li>
+                  <li>Tintas especiales</li>
+                  <li>Acabados personalizados</li>
+              </ul>
+          </div>
 
-                <div class="capability-card">
-                    <i class="bi bi-stack"></i>
-                    <h4>Materiales</h4>
-                    <ul>
-                        <li>Polipropileno virgen</li>
-                        <li>Tejidos especiales</li>
-                        <li>Recubrimientos UV</li>
-                        <li>Tratamientos antiestáticos</li>
-                    </ul>
-                </div>
+          <div class="capability-card">
+              <i class="bi bi-stack"></i>
+              <h4>Materiales</h4>
+              <ul>
+                  <li>Polipropileno virgen</li>
+                  <li>Tejidos especiales</li>
+                  <li>Recubrimientos UV</li>
+                  <li>Tratamientos antiestáticos</li>
+              </ul>
+          </div>
 
-                <div class="capability-card">
-                    <i class="bi bi-rulers"></i>
-                    <h4>Dimensiones</h4>
-                    <ul>
-                        <li>Tamaños personalizados</li>
-                        <li>Alta precisión</li>
-                        <li>Optimización de espacio</li>
-                        <li>Diseños ergonómicos</li>
-                    </ul>
-                </div>
+          <div class="capability-card">
+              <i class="bi bi-rulers"></i>
+              <h4>Dimensiones</h4>
+              <ul>
+                  <li>Tamaños personalizados</li>
+                  <li>Alta precisión</li>
+                  <li>Optimización de espacio</li>
+                  <li>Diseños ergonómicos</li>
+              </ul>
+          </div>
 
-                <div class="capability-card">
-                    <i class="bi bi-shield-check"></i>
-                    <h4>Certificaciones</h4>
-                    <ul>
-                        <li>Control de calidad</li>
-                        <li>Normas ISO</li>
-                        <li>Certificados de seguridad</li>
-                        <li>Pruebas de resistencia</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+          <!-- Sección de Certificaciones comentada 
+          <div class="capability-card">
+              <i class="bi bi-shield-check"></i>
+              <h4>Certificaciones</h4>
+              <ul>
+                  <li>Control de calidad</li>
+                  <li>Normas ISO</li>
+                  <li>Certificados de seguridad</li>
+                  <li>Pruebas de resistencia</li>
+              </ul>
+          </div>
+          -->
+      </div>
+  </div>
+</section>
 
     <!-- Call to Action -->
     <section class="call-to-actiondiseño" data-aos="fade-up">
@@ -649,15 +651,35 @@
 </footer>
 
 
-<div class="whatsapp-container">
-  <a href="https://wa.me/5491135916710?text=Hola,%20me%20gustaría%20obtener%20más%20información" 
-     class="whatsapp-btn" 
-     target="_blank"
-     rel="noopener noreferrer">
-      <i class="bi bi-whatsapp"></i>
-  </a>
-  <span class="whatsapp-tooltip">¿En qué podemos ayudarte?</span>
-</div>
+  <!-- Botón de WhatsApp con tooltip -->
+  <div class="assistant-container">
+    <button class="assistant-btn" id="assistantBtn">
+        <div class="icon-container">
+            <i class="bi bi-person-workspace"></i>
+            <i class="bi bi-headset secondary-icon"></i>
+        </div>
+    </button>
+    <span class="assistant-tooltip">¿Cómo podemos ayudarte?</span>
+    <div class="assistant-menu" id="assistantMenu">
+        <button class="menu-item" data-bs-toggle="modal" data-bs-target="#serviciosModal" 
+                onclick="activateTab('cotizacion-tab')">
+            <i class="bi bi-calculator"></i>
+            Solicitar Cotización
+        </button>
+        <button class="menu-item" data-bs-toggle="modal" data-bs-target="#serviciosModal"
+                onclick="activateTab('asesoria-tab')">
+            <i class="bi bi-tools"></i>
+            Asesoramiento Técnico
+        </button>
+        <a href="https://wa.me/5491135916710?text=Hola,%20quisiera%20hablar%20con%20un%20asesor" 
+           class="menu-item"
+           target="_blank"
+           rel="noopener noreferrer">
+            <i class="bi bi-headset"></i>
+            Hablar con un Asesor
+        </a>
+    </div>
+  </div>
 
 
   <!-- Scroll Top Button -->
@@ -672,5 +694,7 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/productos.js"></script>
+  <script src="assets/js/assistant.js"></script>
+
 </body>
 </html>

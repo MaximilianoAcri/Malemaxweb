@@ -17,7 +17,7 @@ const productDetails = {
                     <li>Capacidades desde 500kg hasta 2000kg</li>
                     <li>Fabricación en polipropileno virgen de alta resistencia</li>
                     <li>Factor de seguridad 5:1</li>
-                    <li>Diseños certificados para cargas pesadas</li>
+                    <li>Diseños testeados para cargas pesadas</li>
                     <li>Opciones con y sin recubrimiento interno</li>
                 </ul>
             </div>

@@ -445,15 +445,35 @@
   </footer>
 
 
-  <div class="whatsapp-container">
-    <a href="https://wa.me/5491135916710?text=Hola,%20me%20gustaría%20obtener%20más%20información" 
-       class="whatsapp-btn" 
-       target="_blank"
-       rel="noopener noreferrer">
-        <i class="bi bi-whatsapp"></i>
-    </a>
-    <span class="whatsapp-tooltip">¿En qué podemos ayudarte?</span>
-</div>
+  <!-- Botón de WhatsApp con tooltip -->
+  <div class="assistant-container">
+    <button class="assistant-btn" id="assistantBtn">
+        <div class="icon-container">
+            <i class="bi bi-person-workspace"></i>
+            <i class="bi bi-headset secondary-icon"></i>
+        </div>
+    </button>
+    <span class="assistant-tooltip">¿Cómo podemos ayudarte?</span>
+    <div class="assistant-menu" id="assistantMenu">
+        <button class="menu-item" data-bs-toggle="modal" data-bs-target="#serviciosModal" 
+                onclick="activateTab('cotizacion-tab')">
+            <i class="bi bi-calculator"></i>
+            Solicitar Cotización
+        </button>
+        <button class="menu-item" data-bs-toggle="modal" data-bs-target="#serviciosModal"
+                onclick="activateTab('asesoria-tab')">
+            <i class="bi bi-tools"></i>
+            Asesoramiento Técnico
+        </button>
+        <a href="https://wa.me/5491135916710?text=Hola,%20quisiera%20hablar%20con%20un%20asesor" 
+           class="menu-item"
+           target="_blank"
+           rel="noopener noreferrer">
+            <i class="bi bi-headset"></i>
+            Hablar con un Asesor
+        </a>
+    </div>
+  </div>
 
   <!-- Scroll Top Button -->
   <a href="#" id="scroll-top" class="scroll-top">
@@ -467,5 +487,7 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/productos.js"></script>
+  <script src="assets/js/assistant.js"></script>
+
 </body>
 </html>

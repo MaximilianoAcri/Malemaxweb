@@ -1744,149 +1744,258 @@ section,
 
 
 
-.whatsapp-container {
-      position: fixed;
-      bottom: 68px; /* Subimos el botón */
-      right: 10px;
-      z-index: 100;
-  }
-  
-  .whatsapp-btn {
-      width: 60px;
-      height: 60px;
-      background-color: #25d366;
-      color: #FFF;
-      border-radius: 50px;
-      text-align: center;
-      font-size: 30px;
-      box-shadow: 2px 2px 3px #999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      position: relative;
-  }
-  
-  .whatsapp-btn:hover {
-      background-color: #20ba57;
-      color: #FFF;
-      transform: scale(1.1);
-  }
-  
-  .whatsapp-btn i {
-      margin-top: 2px;
-  }
-  
-  /* Animación de pulso */
-  .whatsapp-btn::before {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      width: 100%;
-      height: 100%;
-      background-color: #25d366;
-      border-radius: 50%;
+.assistant-container {
+  position: fixed;
+  bottom: 68px;
+  right: 10px;
+  z-index: 100;
+}
+
+.assistant-btn {
+  width: 60px;
+  height: 60px;
+  background-color: #c50d0d;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 2px 2px 3px #999;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.icon-container {
+  position: relative;
+  height: 45px;
+  width: 30px;
+}
+
+.assistant-btn i {
+  color: white;
+  font-size: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.secondary-icon {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+/* Efecto de pulso */
+.assistant-btn::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-color: #c50d0d;
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: pulse 2s infinite;
+}
+
+.assistant-btn:hover {
+  background-color: #c50d0d;
+  transform: scale(1.1);
+}
+
+.assistant-btn:hover .bi-person-workspace {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.assistant-btn:hover .secondary-icon {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.assistant-menu {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+  padding: 8px;
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 220px;
+}
+
+.menu-item {
+  padding: 12px 15px;
+  color: #333;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 5px;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.menu-item i {
+  font-size: 18px;
+  color: #0056b3;
+}
+
+.menu-item:hover {
+  background-color: #f5f5f5;
+  color: #c50d0d;
+  transform: translateX(5px);
+}
+
+/* Tooltip personalizado */
+.assistant-tooltip {
+  position: absolute;
+  right: 75px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #333;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.assistant-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -8px;
+  transform: translateY(-50%);
+  border-width: 8px 0 8px 8px;
+  border-style: solid;
+  border-color: transparent transparent transparent #333;
+}
+
+.assistant-container:hover .assistant-tooltip {
+  opacity: 1;
+  visibility: visible;
+  right: 85px;
+}
+
+@keyframes pulse {
+  0% {
+      transform: scale(1);
       opacity: 0.7;
-      animation: pulse 2s infinite;
   }
-  
-  /* Tooltip personalizado */
-  .whatsapp-tooltip {
-      position: absolute;
-      right: 75px;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: #333;
-      color: white;
-      padding: 8px 15px;
-      border-radius: 4px;
-      font-size: 14px;
-      white-space: nowrap;
+  70% {
+      transform: scale(1.3);
       opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
+  }
+  100% {
+      transform: scale(1.3);
+      opacity: 0;
+  }
+}
+
+/* Estilos responsivos */
+@media screen and (max-width: 768px) {
+  .assistant-container {
+      bottom: 60px;
+      right: 15px;
   }
   
-  .whatsapp-tooltip::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      right: -8px;
-      transform: translateY(-50%);
-      border-width: 8px 0 8px 8px;
-      border-style: solid;
-      border-color: transparent transparent transparent #333;
+  .assistant-btn {
+      width: 50px;
+      height: 50px;
   }
   
-  .whatsapp-container:hover .whatsapp-tooltip {
+  .assistant-btn i {
+      font-size: 25px;
+  }
+
+  .assistant-tooltip {
+      font-size: 12px;
+      padding: 6px 12px;
+      right: 60px;
+  }
+
+  .assistant-menu {
+      min-width: 200px;
+      right: 0;
+  }
+
+  .icon-container {
+    position: relative;
+    height: 35px;
+    width: 30px;
+    right: -3px;
+  }
+
+
+}
+
+/* Ajustes para pantallas muy pequeñas */
+@media screen and (max-width: 480px) {
+  .assistant-container {
+      bottom: 80px;
+      right: 15px;
+  }
+  
+  .assistant-btn {
+      width: 45px;
+      height: 45px;
+  }
+  
+  .assistant-btn i {
+      font-size: 22px;
+  }
+
+  .assistant-tooltip {
+      display: none;
+  }
+
+  .assistant-menu {
+      min-width: 180px;
+      right: 0;
+  }
+}
+
+/* Ajuste para tablets */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .assistant-container {
+      bottom: 90px;
+      right: 30px;
+  }
+}
+
+.assistant-menu.show {
+  display: flex;
+  animation: slideIn 0.3s ease forwards;
+}
+
+@keyframes slideIn {
+  from {
+      opacity: 0;
+      transform: translateY(10px);
+  }
+  to {
       opacity: 1;
-      visibility: visible;
-      right: 85px;
+      transform: translateY(0);
   }
-  
-  @keyframes pulse {
-      0% {
-          transform: scale(1);
-          opacity: 0.7;
-      }
-      70% {
-          transform: scale(1.3);
-          opacity: 0;
-      }
-      100% {
-          transform: scale(1.3);
-          opacity: 0;
-      }
-  }
-  
-  /* Estilos responsivos mejorados */
-  @media screen and (max-width: 768px) {
-      .whatsapp-container {
-          bottom: 65px; /* Ajustado para móviles */
-          right: 15px;
-      }
-      
-      .whatsapp-btn {
-          width: 50px;
-          height: 50px;
-          font-size: 25px;
-      }
-  
-      .whatsapp-tooltip {
-          font-size: 12px;
-          padding: 6px 12px;
-          right: 60px; /* Ajustado para móviles */
-      }
-  }
-  
-  /* Ajustes adicionales para pantallas muy pequeñas */
-  @media screen and (max-width: 480px) {
-      .whatsapp-container {
-          bottom: 80px; /* Aún más arriba en pantallas muy pequeñas */
-          right: 15px;
-      }
-      
-      .whatsapp-btn {
-          width: 45px;
-          height: 45px;
-          font-size: 22px;
-      }
-  
-      .whatsapp-tooltip {
-          display: none; /* Ocultamos el tooltip en pantallas muy pequeñas para evitar problemas de espacio */
-      }
-  }
-  
-  /* Ajuste para tablets */
-  @media screen and (min-width: 769px) and (max-width: 1024px) {
-      .whatsapp-container {
-          bottom: 90px;
-          right: 30px;
-      }
-  }
+}
 
-
+.menu-item:not(:last-child) {
+  border-bottom: 1px solid #f0f0f0;
+}
 
   
 
