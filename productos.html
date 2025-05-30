@@ -76,6 +76,21 @@
     </div>
   </header>
 
+  <div class="promo-banner">
+    <div class="container">
+      <div class="promo-content">
+        <i class="bi bi-lightning-charge"></i>
+        <span class="promo-text">¡Oferta especial! Descuento del 15% en pedidos superiores a 100 unidades</span>
+        <small class="promo-validity">Válido hasta fin de mes</small>
+        <button class="btn-promo" data-bs-toggle="modal" data-bs-target="#serviciosModal">
+          ¡Cotizar Ahora!
+        </button>
+        <button class="promo-close" aria-label="Cerrar banner">
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+    </div>
+  </div>
 
   <main class="main">
 
@@ -226,19 +241,47 @@
     <!-- Banner del Producto -->
     <div class="page-title dark-background">
       <div class="container position-relative">
-        <h1>Soluciones de Embalaje Industrial</h1>
-        <p>Descubra nuestra línea completa de productos diseñados para satisfacer las necesidades más exigentes de la industria.</p>
-        <nav class="breadcrumbs">
-          <ol>
-            <li><a href="index.html">Inicio</a></li>
-            <li class="current">Productos</li>
-          </ol>
-        </nav>
+        <h1>Big Bags y Soluciones de Embalaje a Medida</h1>
+        <p>Descubrí nuestra completa línea de Big Bags de alta resistencia, Bulk Liners, Bolsas y Cubre Cercos diseñados para optimizar tu logística y proteger tus materiales.</p>
+        <div class="action-buttons">
+          <a href="#productos" class="btn btn-primary btn-lg">
+            <i class="bi bi-box-seam"></i> Ver Productos
+          </a>
+          <a href="https://wa.me/5491135916710?text=Hola,%20quisiera%20hablar%20con%20un%20asesor" class="btn btn-outline-light btn-lg" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-headset"></i> Hablar con un Asesor
+          </a>
+        </div>
       </div>
     </div>
 
     <section class="productos-section" id="productos">
       <div class="container">
+        <div class="section-header text-center mb-5">
+          <h2 class="section-title">Soluciones de Embalaje que Transforman tu Industria</h2>
+          <p class="section-subtitle">Descubrí nuestra gama completa de productos diseñados para optimizar tus operaciones</p>
+        </div>
+        <!-- Barra de navegación móvil -->
+        <div class="mobile-nav-products d-lg-none">
+          <div class="mobile-nav-scroll">
+            <button class="mobile-nav-item" data-category="big-bags">
+              Big Bags
+              <i class="bi bi-chevron-down"></i>
+            </button>
+            <button class="mobile-nav-item" data-category="bulk-liner" data-product-id="bulk-liner">Bulk Liner</button>
+            <button class="mobile-nav-item" data-category="bolsas" data-product-id="bolsas">Bolsas</button>
+            <button class="mobile-nav-item" data-category="cubre-cerco" data-product-id="cubre-cerco">Cubre Cerco</button>
+            <button class="mobile-nav-item" data-category="disenos" data-product-id="disenos-personalizados">Diseños</button>
+          </div>
+          <!-- Subproductos de Big Bags -->
+          <div class="mobile-nav-scroll sub-items" style="display: none;">
+            <button class="mobile-nav-item" data-product-id="boca-abierta-fondo-cerrado">Boca Abierta/Fondo Cerrado</button>
+            <button class="mobile-nav-item" data-product-id="boca-abierta-valvula">Boca Abierta/Válvula</button>
+            <button class="mobile-nav-item" data-product-id="valvula-carga-fondo-cerrado">Válvula Carga/Fondo Cerrado</button>
+            <button class="mobile-nav-item" data-product-id="boca-pollera-fondo-cerrado">Boca Pollera/Fondo Cerrado</button>
+            <button class="mobile-nav-item" data-product-id="boca-pollera-valvula">Boca Pollera/Válvula</button>
+            <button class="mobile-nav-item" data-product-id="valvula-carga-descarga">Válvula Carga/Descarga</button>
+          </div>
+        </div>
         <div class="row">
           <!-- Lista de productos (izquierda) -->
           <div class="col-lg-4">
@@ -362,7 +405,198 @@
         </div>
       </div>
     </section>
+
+    <!-- Call to Action Banner -->
+    <section class="cta-banner">
+      <div class="container">
+        <div class="cta-content">
+          <div class="cta-text">
+            <div class="rotating-titles">
+              <h2 class="active">¿Querés cotizar un pedido?</h2>
+              <h2>¿Buscás precios por mayor?</h2>
+              <h2>¿Necesitás asesoramiento?</h2>
+              <h2>¿Querés descuentos especiales?</h2>
+            </div>
+            <p>Obtén precios especiales por volumen y descuentos exclusivos para pedidos mayores a 100 unidades</p>
+          </div>
+          <div class="cta-buttons">
+            <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#serviciosModal" onclick="activateTab('cotizacion-tab')">
+              <i class="bi bi-calculator"></i> Solicitar Cotización
+            </button>
+            <a href="https://wa.me/5491135916710?text=Hola,%20quisiera%20cotizar%20un%20pedido" class="btn btn-outline-light" target="_blank" rel="noopener noreferrer">
+              <i class="bi bi-whatsapp"></i> Hablar por WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="testimonios-section py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-5">
+        <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+        <p class="section-subtitle">Más de 500 empresas confían en nuestras soluciones</p>
+      </div>
+    </div>
+    
+    <div class="row g-4">
+      <!-- Testimonio 1 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="stars">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+            <div class="company-info">
+              <h5>Constructora San Martín</h5>
+              <small>Construcción</small>
+            </div>
+          </div>
+          <blockquote>
+            "Llevamos 4 años trabajando con MaleMax. Los big bags son de excelente calidad y nunca tuvimos problemas. La atención es muy profesional y los tiempos de entrega siempre se cumplen."
+          </blockquote>
+          <cite>- Roberto Fernández, Jefe de Compras</cite>
+        </div>
+      </div>
+
+      <!-- Testimonio 2 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="stars">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+            <div class="company-info">
+              <h5>Granos del Sur S.A.</h5>
+              <small>Agroindustria</small>
+            </div>
+          </div>
+          <blockquote>
+            "Para el transporte de granos necesitábamos big bags especiales. MaleMax nos diseñó una solución perfecta que redujo nuestros costos de logística en un 20%. Recomiendo totalmente."
+          </blockquote>
+          <cite>- María González, Directora de Logística</cite>
+        </div>
+      </div>
+
+      <!-- Testimonio 3 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="stars">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+            <div class="company-info">
+              <h5>Industrias Químicas López</h5>
+              <small>Química Industrial</small>
+            </div>
+          </div>
+          <blockquote>
+            "Los bulk liners de MaleMax nos permitieron optimizar el transporte de productos químicos. Son resistentes, seguros y el asesoramiento técnico fue fundamental para nuestra operación."
+          </blockquote>
+          <cite>- Ing. Carlos Morales, Gerente de Producción</cite>
+        </div>
+      </div>
+
+      <!-- Testimonio 4 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="stars">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+            <div class="company-info">
+              <h5>Obras Viales del Norte</h5>
+              <small>Construcción Vial</small>
+            </div>
+          </div>
+          <blockquote>
+            "En obras viales necesitamos productos que resistan condiciones extremas. Los cubre cercos y big bags de MaleMax superaron nuestras expectativas. Calidad precio imbatible."
+          </blockquote>
+          <cite>- Arq. Sandra Ruiz, Jefa de Obra</cite>
+        </div>
+      </div>
+
+      <!-- Testimonio 5 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="stars">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+            <div class="company-info">
+              <h5>Molinos Pampeanos</h5>
+              <small>Industria Alimentaria</small>
+            </div>
+          </div>
+          <blockquote>
+            "Para el envasado de harina necesitábamos big bags food grade. MaleMax nos proporcionó productos certificados con entregas siempre puntuales. Un socio confiable desde hace 6 años."
+          </blockquote>
+          <cite>- Lic. Pablo Castro, Gerente de Compras</cite>
+        </div>
+      </div>
+
+      <!-- Testimonio 6 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="stars">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+            <div class="company-info">
+              <h5>Minera del Oeste</h5>
+              <small>Minería</small>
+            </div>
+          </div>
+          <blockquote>
+            "Los big bags para minerales deben ser extra resistentes. MaleMax desarrolló bolsas especiales que aguantan materiales abrasivos sin problemas. Servicio técnico excepcional."
+          </blockquote>
+          <cite>- Ing. Laura Vega, Coordinadora de Materiales</cite>
+        </div>
+      </div>
+    </div>
   </main>
+
+      <!-- Free Sample CTA Section -->
+      <section class="free-sample-cta">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+              <h2>¿Querés Probar Antes de Decidir?</h2>
+              <p class="lead">Solicitá una muestra gratuita de nuestros productos y comprobá la calidad MaleMax de primera mano. Sin compromiso.</p>
+              <a href="https://wa.me/5491135916710?text=Hola,%20quisiera%20coordinar%20una%20muestra%20gratuita%20de%20sus%20productos." class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-whatsapp"></i> Coordinar Muestra Gratuita
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
 
   <footer id="footer" class="footer">
     <div class="footer-top">
@@ -434,7 +668,7 @@
         <div class="row align-items-center">
           <div class="col-md-6">
             <div class="copyright">
-              © <span id="currentYear">2024</span> <strong>Malemax</strong>. Todos los derechos reservados.
+              © <span id="currentYear">2025</span> <strong>Malemax</strong>. Todos los derechos reservados.
             </div>
           </div>
           <div class="col-md-6">
@@ -491,6 +725,7 @@
   <script src="assets/js/main.js"></script>
   <script src="assets/js/productos.js"></script>
   <script src="assets/js/assistant.js"></script>
+  <script src="assets/js/banner.js"></script>
 
 </body>
 </html>
