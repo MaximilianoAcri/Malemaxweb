@@ -356,53 +356,91 @@ document.querySelectorAll('.sub-products').forEach(el => {
 
 // Función para mostrar producto
 function showProduct(productId) {
-// Actualizar estados activos
-document.querySelectorAll('.product-list-item').forEach(item => {
-    item.classList.remove('active');
-});
+    // Si es big-bags-general, solo actualizamos el contenido sin redirección
+    if (productId === 'big-bags-general') {
+        const product = productDetails[productId];
+        if (!product) {
+            console.error('Producto no encontrado:', productId);
+            return;
+        }
 
-const selectedItem = document.querySelector(`[data-product-id="${productId}"]`);
-if (selectedItem) {
-    selectedItem.classList.add('active');
+        // Asegurar que el submenú esté visible
+        const subItemsContainer = document.querySelector('.mobile-nav-scroll.sub-items');
+        if (subItemsContainer) {
+            subItemsContainer.style.display = 'flex';
+            subItemsContainer.style.maxHeight = '500px';
+        }
 
-    // Manejar visibilidad de subproductos
-    if (selectedItem.closest('.sub-products')) {
-        const subProducts = selectedItem.closest('.sub-products');
-        subProducts.style.display = 'block';
-        const categoryItem = subProducts.previousElementSibling;
-        const toggleIcon = categoryItem.querySelector('.toggle-icon');
-        if (toggleIcon) toggleIcon.classList.add('active');
+        // Actualizar contenido con animación
+        const detailElement = document.getElementById('product-detail');
+        detailElement.style.opacity = '0';
+
+        setTimeout(() => {
+            detailElement.innerHTML = `
+                <div class="product-detail-header mb-4">
+                    <img src="${product.image}" alt="${product.title}" class="img-fluid mb-4">
+                    <h2 class="h3 mb-3">${product.title}</h2>
+                </div>
+                <div class="product-detail-body">
+                    ${product.description}
+                </div>
+            `;
+            detailElement.style.opacity = '1';
+        }, 200);
+        return;
     }
-}
 
-// Obtener y mostrar detalles del producto
-const product = productDetails[productId];
-if (!product) {
-    console.error('Producto no encontrado:', productId);
-    return;
-}
+    // Para otros productos, mantener el comportamiento normal
+    document.querySelectorAll('.product-list-item').forEach(item => {
+        item.classList.remove('active');
+    });
 
-// Actualizar contenido con animación
-const detailElement = document.getElementById('product-detail');
-detailElement.style.opacity = '0';
+    const selectedItem = document.querySelector(`[data-product-id="${productId}"]`);
+    if (selectedItem) {
+        selectedItem.classList.add('active');
 
-setTimeout(() => {
-    detailElement.innerHTML = `
-        <div class="product-detail-header mb-4">
-            <img src="${product.image}" alt="${product.title}" class="img-fluid mb-4">
-            <h2 class="h3 mb-3">${product.title}</h2>
-        </div>
-        <div class="product-detail-body">
-            ${product.description}
-        </div>
-    `;
-    detailElement.style.opacity = '1';
+        // Mantener el submenú visible
+        const subItemsContainer = document.querySelector('.mobile-nav-scroll.sub-items');
+        if (subItemsContainer) {
+            subItemsContainer.style.display = 'flex';
+            subItemsContainer.style.maxHeight = '500px';
+        }
 
-    // Scroll en móviles
-    if (window.innerWidth < 992) {
-        detailElement.scrollIntoView({ behavior: 'smooth' });
+        // Mantener el botón de Big Bags activo
+        const bigBagsButton = document.querySelector('.mobile-nav-item[data-category="big-bags"]');
+        if (bigBagsButton) {
+            bigBagsButton.classList.add('active');
+        }
     }
-}, 200);
+
+    // Obtener y mostrar detalles del producto
+    const product = productDetails[productId];
+    if (!product) {
+        console.error('Producto no encontrado:', productId);
+        return;
+    }
+
+    // Actualizar contenido con animación
+    const detailElement = document.getElementById('product-detail');
+    detailElement.style.opacity = '0';
+
+    setTimeout(() => {
+        detailElement.innerHTML = `
+            <div class="product-detail-header mb-4">
+                <img src="${product.image}" alt="${product.title}" class="img-fluid mb-4">
+                <h2 class="h3 mb-3">${product.title}</h2>
+            </div>
+            <div class="product-detail-body">
+                ${product.description}
+            </div>
+        `;
+        detailElement.style.opacity = '1';
+
+        // Scroll en móviles
+        if (window.innerWidth < 992) {
+            detailElement.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, 200);
 }
 
 // Función para manejar la navegación con teclado
@@ -420,42 +458,25 @@ document.addEventListener('keydown', function(e) {
 
 // Inicializar navegación con teclado
 handleKeyboardNavigation();
+
 function toggleCategory(event, categoryId) {
     event.stopPropagation();
     const subProducts = document.getElementById(categoryId);
     const toggleIcon = event.currentTarget.querySelector('.toggle-icon');
-    const isHidden = subProducts.style.display === 'none';
-
-    // Mostrar/ocultar subproductos
-    subProducts.style.display = isHidden ? 'block' : 'none';
-    
-    // Rotar ícono
-    toggleIcon.classList.toggle('active', isHidden);
-
-    // Si estamos abriendo, mostrar información general
-    if (isHidden) {
-        showProduct('big-bags-general');
-    }
-}
-
-function toggleCategory(event, categoryId) {
-    const subProducts = document.getElementById(categoryId);
-    const toggleIcon = event.currentTarget.querySelector('.toggle-icon');
     
     if (subProducts) {
-        subProducts.classList.toggle('show');
-        toggleIcon.classList.toggle('active');
+        const isHidden = subProducts.style.display === 'none';
+        
+        // Mostrar/ocultar subproductos
+        subProducts.style.display = isHidden ? 'block' : 'none';
+        subProducts.classList.toggle('show', isHidden);
+        
+        // Rotar ícono
+        toggleIcon.classList.toggle('active', isHidden);
 
-        // Si está abriendo, asegurar que el contenido sea visible
-        if (subProducts.classList.contains('show')) {
-            subProducts.style.display = 'block';
-        } else {
-            // Esperar a que termine la animación antes de ocultar
-            setTimeout(() => {
-                if (!subProducts.classList.contains('show')) {
-                    subProducts.style.display = 'none';
-                }
-            }, 300);
+        // Si estamos abriendo, mostrar información general
+        if (isHidden) {
+            showProduct('big-bags-general');
         }
     }
 }
@@ -497,79 +518,27 @@ function initializeMobileNav() {
     const subItemsContainer = document.querySelector('.mobile-nav-scroll.sub-items');
     const mainNavItemsContainer = document.querySelector('.mobile-nav-scroll:not(.sub-items)');
     const allNavItems = document.querySelectorAll('.mobile-nav-item');
-    const productDetailSection = document.getElementById('product-detail'); // Referencia a la sección de detalles
+    const productDetailSection = document.getElementById('product-detail');
 
-    let backButton = null; // Usamos una variable para referenciar el botón Volver
-
-    // Función para gestionar el estado de la barra de navegación móvil
-    function setMobileNavState(state, selectedItem = null) { // state: 'default', 'big-bags-subitems', 'single-item'
-        if (window.innerWidth > 991.98) return; // Solo aplicar en pantallas pequeñas (lg breakpoint y abajo)
-
-        // Reset general para todos los estados (dentro de la barra)
-        allNavItems.forEach(item => {
-             if (!item.closest('.mobile-nav-scroll.sub-items')) { // Items principales
-                 item.style.display = 'flex';
-             }
-             item.classList.remove('active'); // Remover clase active de todos
-        });
-        if (subItemsContainer) subItemsContainer.style.display = 'none'; // Ocultar subitems por defecto
-
-        if (backButton) {
-             backButton.remove();
-             backButton = null;
-        }
-
-        if (state === 'big-bags-subitems') {
-            if (bigBagsButton) bigBagsButton.classList.add('active');
-            if (subItemsContainer) subItemsContainer.style.display = 'flex'; // Asegurar que se muestre aquí también
-
-             // Ocultar otros items principales excepto Big Bags
-             allNavItems.forEach(item => {
-                if (item !== bigBagsButton && !item.closest('.mobile-nav-scroll.sub-items') && !item.classList.contains('back-button')) {
-                    item.style.display = 'none';
-                }
-            });
-
-            // Crear y mostrar botón Volver
-             backButton = document.createElement('button');
-            backButton.className = 'mobile-nav-item back-button';
-            backButton.innerHTML = '<i class="bi bi-arrow-left"></i> Volver';
-            mainNavItemsContainer.insertBefore(backButton, mainNavItemsContainer.firstChild);
-            backButton.addEventListener('click', () => { setMobileNavState('default'); showProduct('big-bags-general'); }); // Al volver, mostrar info general de Big Bags
-            backButton.style.display = 'flex';
-
-        } else if (state === 'single-item' && selectedItem) {
-             // Ocultar todos los items de la barra excepto el seleccionado
-             allNavItems.forEach(item => {
-                 if (item !== selectedItem) {
-                     item.style.display = 'none';
-                 }
-             });
-
-            // Crear botón Volver y posicionarlo antes del item seleccionado
-             backButton = document.createElement('button');
-            backButton.className = 'mobile-nav-item back-button';
-            backButton.innerHTML = '<i class="bi bi-arrow-left"></i> Volver';
-             // Insertar el botón volver antes del item seleccionado en el contenedor principal de items
-             if(selectedItem.closest('.mobile-nav-scroll')){
-                 selectedItem.closest('.mobile-nav-scroll').insertBefore(backButton, selectedItem);
-             } else {
-                  // En caso de que no esté en un scroll container (aunque debería), insertarlo al principio del main nav
-                 mainNavItemsContainer.insertBefore(backButton, mainNavItemsContainer.firstChild);
-             }
-            backButton.addEventListener('click', () => { setMobileNavState('default'); showProduct('big-bags-general'); }); // Al volver, mostrar info general de Big Bags
-            backButton.style.display = 'flex'; // Asegurar visibilidad
-
-             // Asegurarse de que el item seleccionado sea visible y activo
-             selectedItem.style.display = 'flex';
-             selectedItem.classList.add('active');
-
-             // Asegurarse de que el botón Big Bags principal no tenga la clase active en este estado
-             if (bigBagsButton) {
+    // Función para manejar el estado de Big Bags
+    function handleBigBagsState(show) {
+        const bigBagsButton = document.querySelector('.mobile-nav-item[data-category="big-bags"]');
+        const subItemsContainer = document.querySelector('.mobile-nav-scroll.sub-items');
+        
+        if (bigBagsButton && subItemsContainer) {
+            if (show) {
+                bigBagsButton.classList.add('active');
+                subItemsContainer.style.display = 'flex';
+                subItemsContainer.style.maxHeight = '500px';
+                showProduct('big-bags-general');
+            } else {
                 bigBagsButton.classList.remove('active');
-             }
+                subItemsContainer.style.maxHeight = '0';
+                setTimeout(() => {
+                    subItemsContainer.style.display = 'none';
+                }, 300);
+            }
         }
-        // Para 'default', el reset ya se hizo al inicio de la función
     }
 
     // Evento para el botón principal de Big Bags
@@ -577,70 +546,105 @@ function initializeMobileNav() {
         bigBagsButton.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
-
-            console.log('Big Bags button clicked'); // Log para verificar que el listener se activa
-
-            // Si ya está mostrando subitems, volver al estado default
-            if (bigBagsButton.classList.contains('active')) {
-                console.log('Big Bags state: Hiding subitems');
-                setMobileNavState('default');
-                 if (subItemsContainer) subItemsContainer.style.display = 'none'; // Asegurar ocultar
-                 console.log('subItemsContainer display after hide:', subItemsContainer.style.display);
-            } else {
-                 // Si no, mostrar subitems de Big Bags
-                console.log('Big Bags state: Showing subitems');
-                setMobileNavState('big-bags-subitems');
-                // Llamar a showProduct('big-bags-general') al mostrar los subitems
-                showProduct('big-bags-general');
-                 if (subItemsContainer) subItemsContainer.style.display = 'flex'; // Forzar mostrar aquí también
-                 console.log('subItemsContainer display after show:', subItemsContainer.style.display);
-            }
-             console.log('Big Bags button active class:', bigBagsButton.classList.contains('active'));
+            const isActive = bigBagsButton.classList.contains('active');
+            handleBigBagsState(!isActive);
         });
     }
 
-    // Evento para todos los items de navegación (principales y subitems) que representan un producto
-    allNavItems.forEach(item => {
-         // Asegurarse de no agregar listener al botón Big Bags principal o al botón Volver
-        if (item !== bigBagsButton && !item.classList.contains('back-button')) {
+    // Evento para los subitems de Big Bags
+    const subItems = document.querySelectorAll('.mobile-nav-scroll.sub-items .mobile-nav-item');
+    subItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
             const productId = item.getAttribute('data-product-id');
-            if (productId) { // Solo agregar listener si el item tiene un product-id
+            if (productId) {
+                // Desactivamos todos los subitems
+                subItems.forEach(subItem => subItem.classList.remove('active'));
+                // Activamos el subitem seleccionado
+                item.classList.add('active');
+                
+                // Mantener Big Bags activo y submenú visible
+                if (bigBagsButton) {
+                    bigBagsButton.classList.add('active');
+                }
+                if (subItemsContainer) {
+                    subItemsContainer.style.display = 'flex';
+                    subItemsContainer.style.maxHeight = '500px';
+                }
+                
+                showProduct(productId);
+                if (productDetailSection) {
+                    // Ajustamos el scroll para asegurar que el contenido sea visible
+                    const headerOffset = 100;
+                    const elementPosition = productDetailSection.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+
+    // Evento para otros items de navegación
+    allNavItems.forEach(item => {
+        if (item !== bigBagsButton && !item.closest('.mobile-nav-scroll.sub-items')) {
+            const productId = item.getAttribute('data-product-id');
+            if (productId) {
                 item.addEventListener('click', (e) => {
                     e.preventDefault();
                     e.stopPropagation();
 
-                    // Mostrar el detalle del producto
+                    // Desactivamos otros menús
+                    allNavItems.forEach(navItem => {
+                        navItem.classList.remove('active');
+                    });
+                    // Activamos el menú seleccionado
+                    item.classList.add('active');
+                    
+                    // Ocultar submenú de Big Bags si está visible
+                    if (subItemsContainer) {
+                        subItemsContainer.style.display = 'none';
+                        subItemsContainer.style.maxHeight = '0';
+                    }
+                    if (bigBagsButton) {
+                        bigBagsButton.classList.remove('active');
+                    }
+                    
                     showProduct(productId);
-
-                    // Configurar estado para mostrar solo este item en la barra
-                    setMobileNavState('single-item', item); // Pasar el item seleccionado a la función de estado
-
-                    // Desplazarse al panel de detalles del producto
                     if (productDetailSection) {
-                         productDetailSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        // Ajustamos el scroll para asegurar que el contenido sea visible
+                        const headerOffset = 100;
+                        const elementPosition = productDetailSection.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
                     }
                 });
             }
         }
     });
 
-    // Cerrar todo al hacer clic fuera del contenedor principal de la barra móvil
-    document.addEventListener('click', (e) => {
-        // Verificar si estamos en móvil y si el clic fue fuera del contenedor principal de la barra móvil
-        if (window.innerWidth <= 991.98 && !e.target.closest('.mobile-nav-products')) {
-            setMobileNavState('default');
+    // Manejar redimensionamiento de ventana
+    window.addEventListener('resize', () => {
+        if (window.innerWidth <= 991.98) {
+            handleBigBagsState(true);
         }
     });
 
-    // Manejar redimensionamiento para resetear el estado móvil
-    window.addEventListener('resize', () => {
-        setMobileNavState('default'); // Resetear al estado default en cualquier redimensionamiento
+    // Agregar evento de clic en el documento para cerrar subitems solo cuando se hace clic fuera
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.mobile-nav-products') && !e.target.closest('.product-detail')) {
+            handleBigBagsState(false);
+        }
     });
-
-     // Asegurarse de que la vista inicial sea correcta al cargar la página en móvil
-     // Llama a setMobileNavState('default') para configurar la vista inicial correctamente
-     setMobileNavState('default');
-
 }
 
 // Inicializar cuando el DOM esté listo
