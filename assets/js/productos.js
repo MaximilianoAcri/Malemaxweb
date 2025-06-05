@@ -515,84 +515,21 @@ document.addEventListener('DOMContentLoaded', () => {
 // Función para manejar la navegación móvil
 function initializeMobileNav() {
     const bigBagsButton = document.querySelector('.mobile-nav-item[data-category="big-bags"]');
-    const subItemsContainer = document.querySelector('.mobile-nav-scroll.sub-items');
-    const mainNavItemsContainer = document.querySelector('.mobile-nav-scroll:not(.sub-items)');
     const allNavItems = document.querySelectorAll('.mobile-nav-item');
     const productDetailSection = document.getElementById('product-detail');
 
-    // Función para manejar el estado de Big Bags
-    function handleBigBagsState(show) {
-        const bigBagsButton = document.querySelector('.mobile-nav-item[data-category="big-bags"]');
-        const subItemsContainer = document.querySelector('.mobile-nav-scroll.sub-items');
-        
-        if (bigBagsButton && subItemsContainer) {
-            if (show) {
-                bigBagsButton.classList.add('active');
-                subItemsContainer.style.display = 'flex';
-                subItemsContainer.style.maxHeight = '500px';
-                showProduct('big-bags-general');
-            } else {
-                bigBagsButton.classList.remove('active');
-                subItemsContainer.style.maxHeight = '0';
-                setTimeout(() => {
-                    subItemsContainer.style.display = 'none';
-                }, 300);
-            }
-        }
-    }
-
     // Evento para el botón principal de Big Bags
-    if (bigBagsButton && subItemsContainer) {
+    if (bigBagsButton) {
         bigBagsButton.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
-            const isActive = bigBagsButton.classList.contains('active');
-            handleBigBagsState(!isActive);
+            showProduct('big-bags-general');
         });
     }
 
-    // Evento para los subitems de Big Bags
-    const subItems = document.querySelectorAll('.mobile-nav-scroll.sub-items .mobile-nav-item');
-    subItems.forEach(item => {
-        item.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            const productId = item.getAttribute('data-product-id');
-            if (productId) {
-                // Desactivamos todos los subitems
-                subItems.forEach(subItem => subItem.classList.remove('active'));
-                // Activamos el subitem seleccionado
-                item.classList.add('active');
-                
-                // Mantener Big Bags activo y submenú visible
-                if (bigBagsButton) {
-                    bigBagsButton.classList.add('active');
-                }
-                if (subItemsContainer) {
-                    subItemsContainer.style.display = 'flex';
-                    subItemsContainer.style.maxHeight = '500px';
-                }
-                
-                showProduct(productId);
-                if (productDetailSection) {
-                    // Ajustamos el scroll para asegurar que el contenido sea visible
-                    const headerOffset = 100;
-                    const elementPosition = productDetailSection.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            }
-        });
-    });
-
     // Evento para otros items de navegación
     allNavItems.forEach(item => {
-        if (item !== bigBagsButton && !item.closest('.mobile-nav-scroll.sub-items')) {
+        if (item !== bigBagsButton) {
             const productId = item.getAttribute('data-product-id');
             if (productId) {
                 item.addEventListener('click', (e) => {
@@ -605,15 +542,6 @@ function initializeMobileNav() {
                     });
                     // Activamos el menú seleccionado
                     item.classList.add('active');
-                    
-                    // Ocultar submenú de Big Bags si está visible
-                    if (subItemsContainer) {
-                        subItemsContainer.style.display = 'none';
-                        subItemsContainer.style.maxHeight = '0';
-                    }
-                    if (bigBagsButton) {
-                        bigBagsButton.classList.remove('active');
-                    }
                     
                     showProduct(productId);
                     if (productDetailSection) {
@@ -629,20 +557,6 @@ function initializeMobileNav() {
                     }
                 });
             }
-        }
-    });
-
-    // Manejar redimensionamiento de ventana
-    window.addEventListener('resize', () => {
-        if (window.innerWidth <= 991.98) {
-            handleBigBagsState(true);
-        }
-    });
-
-    // Agregar evento de clic en el documento para cerrar subitems solo cuando se hace clic fuera
-    document.addEventListener('click', (e) => {
-        if (!e.target.closest('.mobile-nav-products') && !e.target.closest('.product-detail')) {
-            handleBigBagsState(false);
         }
     });
 }
