@@ -1,202 +1,6 @@
 // Datos de productos
 const productDetails = {
-    'big-bags-general': {
-        title: 'Big Bags',
-        image: './assets/img/bolsas-01.png',
-        description: `
-            <p class="lead">Solución industrial de primer nivel para el almacenamiento y transporte de materiales a granel.</p>
-            
-            <div class="overview-section">
-                <p>Nuestros Big Bags están diseñados para ofrecer máxima seguridad y eficiencia en el manejo de grandes volúmenes. 
-                Fabricados con materiales de alta calidad y tecnología avanzada, garantizan la protección y el manejo óptimo de sus productos.</p>
-            </div>
 
-            <div class="features-section mt-4">
-                <h4>Características Generales</h4>
-                <ul>
-                    <li>Capacidades desde 500kg hasta 2000kg</li>
-                    <li>Fabricación en polipropileno virgen de alta resistencia</li>
-                    <li>Factor de seguridad 5:1</li>
-                    <li>Diseños testeados para cargas pesadas</li>
-                    <li>Opciones con y sin recubrimiento interno</li>
-                </ul>
-            </div>
-
-            <div class="benefits-section mt-4">
-                <h4>Ventajas</h4>
-                <ul>
-                    <li>Optimización del espacio de almacenamiento</li>
-                    <li>Reducción de costos logísticos</li>
-                    <li>Manipulación segura y eficiente</li>
-                    <li>Protección del producto</li>
-                    <li>Versatilidad de uso</li>
-                </ul>
-            </div>
-        `
-    },
-    'boca-abierta-fondo-cerrado': {
-        title: 'Boca Abierta / Fondo Cerrado',
-        image: './assets/img/bolsas-01.png',
-        description: `
-            <p class="lead">Diseño clásico ideal para carga superior y descarga por vuelco completo.</p>
-            
-            <div class="features-section">
-                <h4>Características Específicas</h4>
-                <ul>
-                    <li>Apertura superior de fácil acceso</li>
-                    <li>Base plana reforzada para mayor estabilidad</li>
-                    <li>Asas de elevación reforzadas</li>
-                    <li>Opción de cierre superior con cuerda</li>
-                </ul>
-            </div>
-
-            <div class="applications-section mt-4">
-                <h4>Aplicaciones Recomendadas</h4>
-                <ul>
-                    <li>Materiales de construcción</li>
-                    <li>Productos agrícolas</li>
-                    <li>Minerales</li>
-                    <li>Productos industriales a granel</li>
-                </ul>
-            </div>
-        `
-    },
-    'boca-abierta-valvula': {
-        title: 'Boca Abierta / Válvula de Descarga',
-        image: './assets/img/bolsas-03.png',
-        description: `
-            <p class="lead">Combinación perfecta para llenado fácil y descarga controlada.</p>
-
-            <div class="features-section">
-                <h4>Características Específicas</h4>
-                <ul>
-                    <li>Boca superior amplia para llenado eficiente</li>
-                    <li>Válvula de descarga de tamaño personalizable</li>
-                    <li>Sistema de cierre seguro en la válvula</li>
-                    <li>Diseño optimizado para flujo controlado</li>
-                </ul>
-            </div>
-
-            <div class="applications-section mt-4">
-                <h4>Aplicaciones Recomendadas</h4>
-                <ul>
-                    <li>Productos granulados</li>
-                    <li>Materiales que requieren dosificación</li>
-                    <li>Industria química</li>
-                    <li>Alimentos a granel</li>
-                </ul>
-            </div>
-        `
-    },
-    'valvula-carga-fondo-cerrado': {
-        title: 'Válvula de Carga / Fondo Cerrado',
-        image: './assets/img/bolsas-02.png',
-        description: `
-            <p class="lead">Ideal para sistemas de llenado automatizados con descarga por vuelco.</p>
-
-            <div class="features-section">
-                <h4>Características Específicas</h4>
-                <ul>
-                    <li>Válvula superior compatible con sistemas automáticos</li>
-                    <li>Base cerrada y reforzada</li>
-                    <li>Diseño hermético para productos sensibles</li>
-                    <li>Optimizado para líneas de llenado industrial</li>
-                </ul>
-            </div>
-
-            <div class="applications-section mt-4">
-                <h4>Aplicaciones Recomendadas</h4>
-                <ul>
-                    <li>Plantas de procesamiento automatizado</li>
-                    <li>Productos que requieren protección especial</li>
-                    <li>Materiales finos o polvorientos</li>
-                    <li>Industria alimenticia</li>
-                </ul>
-            </div>
-        `
-    },
-// ... continuación de productos anteriores ...
-'boca-pollera-fondo-cerrado': {
-    title: 'Boca con Pollera / Fondo Cerrado',
-    image: './assets/img/bolsas-05.png',
-    description: `
-        <p class="lead">Máxima protección superior con sistema de descarga tradicional.</p>
-
-        <div class="features-section">
-            <h4>Características Específicas</h4>
-            <ul>
-                <li>Pollera protectora superior</li>
-                <li>Sistema de cierre hermético</li>
-                <li>Base reforzada para mayor estabilidad</li>
-                <li>Protección adicional contra contaminantes</li>
-            </ul>
-        </div>
-
-        <div class="applications-section mt-4">
-            <h4>Aplicaciones Recomendadas</h4>
-            <ul>
-                <li>Productos que requieren protección superior</li>
-                <li>Almacenamiento al aire libre</li>
-                <li>Materiales sensibles a la humedad</li>
-                <li>Industria química y alimenticia</li>
-            </ul>
-        </div>
-    `
-},
-'boca-pollera-valvula': {
-    title: 'Boca con Pollera / Válvula de Descarga',
-    image: './assets/img/bolsas-06.png',
-    description: `
-        <p class="lead">Combina protección superior con descarga controlada.</p>
-
-        <div class="features-section">
-            <h4>Características Específicas</h4>
-            <ul>
-                <li>Pollera protectora en la parte superior</li>
-                <li>Válvula de descarga de fácil operación</li>
-                <li>Doble sistema de protección</li>
-                <li>Máxima versatilidad operativa</li>
-            </ul>
-        </div>
-
-        <div class="applications-section mt-4">
-            <h4>Aplicaciones Recomendadas</h4>
-            <ul>
-                <li>Productos que requieren máxima protección</li>
-                <li>Materiales de descarga controlada</li>
-                <li>Industrias con altos estándares de calidad</li>
-                <li>Productos sensibles al ambiente</li>
-            </ul>
-        </div>
-    `
-},
-'valvula-carga-descarga': {
-    title: 'Válvula de Carga / Válvula de Descarga',
-    image: './assets/img/bolsas-04.png',
-    description: `
-        <p class="lead">Sistema completamente cerrado para máximo control y protección.</p>
-
-        <div class="features-section">
-            <h4>Características Específicas</h4>
-            <ul>
-                <li>Válvulas en ambos extremos</li>
-                <li>Sistema totalmente hermético</li>
-                <li>Compatible con equipos automatizados</li>
-                <li>Máxima protección del producto</li>
-            </ul>
-        </div>
-
-        <div class="applications-section mt-4">
-            <h4>Aplicaciones Recomendadas</h4>
-            <ul>
-                <li>Productos que requieren ambiente controlado</li>
-                <li>Materiales peligrosos o sensibles</li>
-                <li>Procesos automatizados</li>
-                <li>Industrias con requisitos especiales de manipulación</li>
-            </ul>
-        </div>
-    `
-},
 'bulk-liner': {
     title: 'Sistema Bulk Liner',
     image: './assets/img/FOTOS/bulk liner.png',
@@ -248,14 +52,6 @@ const productDetails = {
                     <ul>
                         <li>Mayor resistencia y durabilidad</li>
                         <li>Protección adicional contra humedad</li>
-                        <li>Ideal para productos que requieren barrera</li>
-                    </ul>
-                </li>
-                <li>Bolsas Sin Laminar
-                    <ul>
-                        <li>Solución económica y versátil</li>
-                        <li>Excelente ventilación</li>
-                        <li>Para productos que no requieren barrera</li>
                     </ul>
                 </li>
             </ul>
@@ -325,14 +121,16 @@ const productDetails = {
             </ol>
         </div>
     `
-}
+},
+
+
 };
 
 // Inicialización cuando el documento está listo
 document.addEventListener('DOMContentLoaded', function() {
     initializeProducts();
     initializeMobileNav();
-    showProduct('big-bags-general');
+    showProduct('bulk-liner');
 });
 
 // Función de inicialización

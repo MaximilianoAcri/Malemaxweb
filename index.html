@@ -49,20 +49,11 @@
           <li class="dropdown">
             <a href="productos.html"><span>Productos</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
+              <li><a href="big-bags.html">Big Bags</a></li>
+              <li><a href="etiquetas.html">Etiquetas</a></li>
               <li><a href="productos.html#bolsas">Bolsas y Embalaje</a></li>
               <li><a href="productos.html#bulk-liner">Bulk Liner</a></li>
               <li><a href="productos.html#cubre-cerco">Cubre Cerco</a></li>
-              <li class="dropdown">
-                <a href="productos.html#big-bags"><span>Big Bags</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="productos.html#product-boca-abierta-fondo-cerrado">Boca abierta / Fondo cerrado</a></li>
-                  <li><a href="productos.html#product-boca-abierta-valvula">Boca abierta / Válvula de descarga</a></li>
-                  <li><a href="productos.html#product-valvula-carga-fondo-cerrado">Válvula de carga / Fondo cerrado</a></li>
-                  <li><a href="productos.html#product-boca-pollera-fondo-cerrado">Boca con pollera / Fondo cerrado</a></li>
-                  <li><a href="productos.html#product-boca-pollera-valvula">Boca con pollera / Válvula de descarga</a></li>
-                  <li><a href="productos.html#product-valvula-carga-descarga">Válvula de carga / Válvula de descarga</a></li>
-                </ul>
-              </li>
             </ul>
           </li>
           <li><a href="diseño.html">Diseño</a></li>
@@ -189,8 +180,8 @@
     
         <div class="row g-4">
           <!-- Big Bags - Producto Destacado -->
-          <div class="col-lg-6" data-aos="fade-up">
-            <a href="productos.html" class="product-card featured">
+          <div class="col-lg-4" data-aos="fade-up">
+            <a href="big-bags.html" class="product-card featured">
               <div class="product-image">
                 <img src="assets/img/FOTOS/Bolsones.png" alt="Big Bags">
                 <div class="product-badge">Más Vendido</div>
@@ -208,8 +199,27 @@
             </a>
           </div>
     
+          <!-- Etiquetas -->
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <a href="etiquetas.html" class="product-card featured">
+              <div class="product-image">
+                <img src="assets/img/FOTOS/etiquetas/etiquetas.jpg" alt="etiquetas">
+                <div class="product-badge">Nuevo</div>
+              </div>
+              <div class="product-content">
+                <h3 class="product-title">Etiquetas</h3>
+                <p class="product-description">Soluciones de etiquetado profesional para todas las industrias. Desde etiquetas comunes hasta especializadas para condiciones extremas.</p>
+                <div class="product-features">
+                  <span><i class="bi bi-check-circle"></i> Múltiples materiales</span>
+                  <span><i class="bi bi-check-circle"></i> Personalizables</span>
+                  <span><i class="bi bi-check-circle"></i> Alta calidad</span>
+                </div>
+                <span class="product-link">Conocer Más</span>
+              </div>
+            </a>
+          </div>
           <!-- Bulk Liner -->
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
             <a href="productos.html" class="product-card featured">
               <div class="product-image">
                 <img src="assets/img/FOTOS/Liner.jpeg" alt="Bulk Liner">
@@ -227,7 +237,7 @@
               </div>
             </a>
           </div>
-    
+
           <!-- Productos Secundarios en Cards más Compactas -->
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <a href="productos.html" class="product-card featured">
@@ -242,7 +252,7 @@
             </a>
           </div>
     
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="col-lg-4 col-md-4" data-aos="fade-up" data-aos-delay="300">
             <a href="productos.html" class="product-card featured">
               <div class="product-image">
                 <img src="assets/img/FOTOS/cerco.jpeg" alt="Cubre Cerco">
@@ -258,7 +268,7 @@
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
             <a href="diseño.html" class="product-card featured">
               <div class="product-image">
-                <img src="assets/img/FOTOS/diseño-removebg-preview.png" alt="Diseños Personalizados">
+                <img src="assets/img/FOTOS/diseño.jpg" alt="Diseños Personalizados">
               </div>
               <div class="product-content">
                 <h3 class="product-title">Diseños Personalizados</h3>
@@ -272,151 +282,157 @@
 
     </section>
 
-    <!-- Tabs Modal -->
-<div class="modal fade" id="serviciosModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <ul class="nav nav-tabs modal-tabs" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#cotizacion-tab" type="button" role="tab">
-              <i class="bi bi-calculator"></i> Solicitar Cotización
-            </button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#asesoria-tab" type="button" role="tab">
-              <i class="bi bi-chat-dots"></i> Asesoramiento Técnico
-            </button>
-          </li>
-        </ul>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-
-      <div class="modal-body">
-        <div class="tab-content">
-          <!-- Formulario de Cotización -->
-          <div class="tab-pane fade show active" id="cotizacion-tab" role="tabpanel">
-            <form class="cotizacion-form" id="formCotizacion">
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="cotizacion-nombre" required>
-                    <label>Nombre</label>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-floating">
-                    <input type="email" class="form-control" id="cotizacion-email" required>
-                    <label>Email</label>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="cotizacion-empresa">
-                    <label>Empresa</label>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-floating">
-                    <input type="tel" class="form-control" id="cotizacion-telefono" required>
-                    <label>Teléfono</label>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="form-floating">
-                    <select class="form-select" id="cotizacion-producto" required>
-                      <option value="" selected disabled>Seleccione un producto</option>
-                      <optgroup label="Big Bags">
-                        <option>Boca abierta/Fondo cerrado</option>
-                        <option>Boca abierta/Válvula descarga</option>
-                        <option>Válvula de carga/Fondo cerrado</option>
-                        <option>Boca con pollera/Fondo cerrado</option>
-                        <option>Boca con pollera/Válvula descarga</option>
-                        <option>Válvula de carga/Válvula descarga</option>
-                      </optgroup>
-                      <optgroup label="Otros Productos">
-                        <option>Bolsa de Rafia</option>
-                        <option>Tela Cubre Cerco</option>
-                        <option>Bulk Liner</option>
-                      </optgroup>
-                    </select>
-                    <label>Producto a cotizar</label>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="form-floating">
-                    <textarea class="form-control" id="cotizacion-mensaje" style="height: 120px"></textarea>
-                    <label>Especificaciones y cantidades</label>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <button type="submit" class="btn-submit">
-                    <i class="bi bi-send"></i> Solicitar Cotización
+      <!-- Tabs Modal -->
+      <div class="modal fade" id="serviciosModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <ul class="nav nav-tabs modal-tabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#cotizacion-tab" type="button" role="tab">
+                    <i class="bi bi-calculator"></i> Solicitar Cotización
                   </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#asesoria-tab" type="button" role="tab">
+                    <i class="bi bi-chat-dots"></i> Asesoramiento Técnico
+                  </button>
+                </li>
+              </ul>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+      
+            <div class="modal-body">
+              <div class="tab-content">
+                <!-- Formulario de Cotización -->
+                <div class="tab-pane fade show active" id="cotizacion-tab" role="tabpanel">
+                  <form class="cotizacion-form" id="formCotizacion">
+                    <div class="row g-3">
+                      <div class="col-md-6">
+                        <div class="form-floating">
+                          <input type="text" class="form-control" id="cotizacion-nombre" required>
+                          <label>Nombre</label>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-floating">
+                          <input type="email" class="form-control" id="cotizacion-email" required>
+                          <label>Email</label>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-floating">
+                          <input type="text" class="form-control" id="cotizacion-empresa">
+                          <label>Empresa</label>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-floating">
+                          <input type="tel" class="form-control" id="cotizacion-telefono" required>
+                          <label>Teléfono</label>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-floating">
+                          <select class="form-select" id="cotizacion-producto" required>
+                            <option value="" selected disabled>Seleccione un producto</option>
+                            <optgroup label="Big Bags">
+                              <option>Boca abierta/Fondo cerrado</option>
+                              <option>Boca abierta/Válvula descarga</option>
+                              <option>Válvula de carga/Fondo cerrado</option>
+                              <option>Boca con pollera/Fondo cerrado</option>
+                              <option>Boca con pollera/Válvula descarga</option>
+                              <option>Válvula de carga/Válvula descarga</option>
+                            </optgroup>
+                            <optgroup label="Otros Productos">
+                              <option>Bolsa de Rafia</option>
+                              <option>Tela Cubre Cerco</option>
+                              <option>Bulk Liner</option>
+                            </optgroup>
+                            <optgroup label="Etiquetas">
+                              <option>Etiquetas Comunes</option>
+                              <option>Etiquetas Térmicas</option>
+                              <option>Etiquetas Textiles</option>
+                              <option>Etiquetas para Congelados</option>
+                            </optgroup>
+                          </select>
+                          <label>Producto a cotizar</label>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-floating">
+                          <textarea class="form-control" id="cotizacion-mensaje" style="height: 120px"></textarea>
+                          <label>Especificaciones y cantidades</label>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <button type="submit" class="btn-submit">
+                          <i class="bi bi-send"></i> Solicitar Cotización
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+      
+                <!-- Formulario de Asesoramiento -->
+                <div class="tab-pane fade" id="asesoria-tab" role="tabpanel">
+                  <form class="asesoria-form" id="formAsesoria">
+                    <div class="row g-3">
+                      <div class="col-md-6">
+                        <div class="form-floating">
+                          <input type="text" class="form-control" id="asesoria-nombre" required>
+                          <label>Nombre</label>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-floating">
+                          <input type="email" class="form-control" id="asesoria-email" required>
+                          <label>Email</label>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-floating">
+                          <input type="text" class="form-control" id="asesoria-empresa">
+                          <label>Empresa</label>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-floating">
+                          <input type="tel" class="form-control" id="asesoria-telefono" required>
+                          <label>Teléfono</label>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-floating">
+                          <select class="form-select" id="asesoria-tipo" required>
+                            <option value="" selected disabled>Seleccione el tipo de asesoramiento</option>
+                            <option>Técnico</option>
+                            <option>Producto</option>
+                            <option>Aplicación</option>
+                            <option>Otro</option>
+                          </select>
+                          <label>Tipo de asesoramiento</label>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-floating">
+                          <textarea class="form-control" id="asesoria-consulta" style="height: 120px"></textarea>
+                          <label>Describa su consulta</label>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <button type="submit" class="btn-submit">
+                          <i class="bi bi-send"></i> Solicitar Asesoramiento
+                        </button>
+                      </div>
+                    </div>
+                  </form>
                 </div>
               </div>
-            </form>
-          </div>
-
-          <!-- Formulario de Asesoramiento -->
-          <div class="tab-pane fade" id="asesoria-tab" role="tabpanel">
-            <form class="asesoria-form" id="formAsesoria">
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="asesoria-nombre" required>
-                    <label>Nombre</label>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-floating">
-                    <input type="email" class="form-control" id="asesoria-email" required>
-                    <label>Email</label>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" id="asesoria-empresa">
-                    <label>Empresa</label>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-floating">
-                    <input type="tel" class="form-control" id="asesoria-telefono" required>
-                    <label>Teléfono</label>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="form-floating">
-                    <select class="form-select" id="asesoria-tipo" required>
-                      <option value="" selected disabled>Seleccione el tipo de asesoramiento</option>
-                      <option>Técnico</option>
-                      <option>Producto</option>
-                      <option>Aplicación</option>
-                      <option>Otro</option>
-                    </select>
-                    <label>Tipo de asesoramiento</label>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="form-floating">
-                    <textarea class="form-control" id="asesoria-consulta" style="height: 120px"></textarea>
-                    <label>Describa su consulta</label>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <button type="submit" class="btn-submit">
-                    <i class="bi bi-send"></i> Solicitar Asesoramiento
-                  </button>
-                </div>
-              </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
 
 <section id="call-to-action" class="call-to-action">
   <div class="container">
@@ -866,6 +882,12 @@
                             <option>Tela Cubre Cerco</option>
                             <option>Bulk Liner</option>
                           </optgroup>
+                          <optgroup label="Etiquetas">
+                            <option>Etiquetas Comunes</option>
+                            <option>Etiquetas Térmicas</option>
+                            <option>Etiquetas Textiles</option>
+                            <option>Etiquetas para Congelados</option>
+                          </optgroup>
                         </select>
                         <label>Producto a cotizar</label>
                       </div>
@@ -1176,8 +1198,10 @@
       </div>
     </div>
   </footer>
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <!-- Scroll Top Button -->
+  <a href="#" id="scroll-top" class="scroll-top">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
 
   <!-- Preloader -->
   <div id="preloader"></div>
