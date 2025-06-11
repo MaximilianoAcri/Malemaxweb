@@ -921,34 +921,51 @@ section,
 .features-header {
   margin-bottom: 60px;
 }
-
+/* --- ESTILOS BASE (Mobile First) --- */
 .section-badge {
   display: inline-block;
   background: linear-gradient(135deg, #c50d0d 0%, #1f2b99 100%);
   color: #fff;
-  padding: 8px 20px;
+  padding: 0.5rem 1.25rem; /* 8px 20px */
   border-radius: 25px;
   font-size: 0.9rem;
   font-weight: 500;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem; /* 20px */
   text-transform: uppercase;
   letter-spacing: 1px;
+  text-align: center;
+  align-items: center;
 }
 
 .features-title {
-  font-size: 32px;
+  /* En móvil, usamos un tamaño más contenido */
+  font-size: 1.75rem; /* 28px */
   font-weight: 700;
   color: #2a2c39;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem; /* 20px */
 }
 
 .features-description {
-  font-size: 16px;
+  font-size: 1rem; /* 16px */
   color: #666;
   max-width: 700px;
   margin: 0 auto;
+  padding: 0 1rem; /* Añadimos padding lateral para que el texto no toque los bordes en móvil */
 }
 
+/* --- TABLETS Y PANTALLAS MÁS GRANDES --- */
+/* Se activa en pantallas de 768px de ancho o más */
+@media (min-width: 768px) {
+  .features-title {
+    /* En pantallas grandes, volvemos al tamaño original o incluso un poco más */
+    font-size: 2rem; /* 32px */
+  }
+
+  .features-description {
+    font-size: 1.125rem; /* 18px, un poco más grande para mejor lectura */
+    padding: 0; /* Quitamos el padding lateral ya que max-width hace el trabajo */
+  }
+}
 /* Navigation Tabs */
 .features-nav {
   display: flex;
