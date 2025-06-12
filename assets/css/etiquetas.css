@@ -213,3 +213,188 @@
   outline: 2px solid var(--accent-color);
   outline-offset: 2px;
 } 
+
+
+/* =============================================
+   BANNER PROMOCIONAL - CSS
+   ============================================= */
+
+   .promo-banner {
+    background: linear-gradient(rgba(197, 13, 13, 0.95), rgba(160, 10, 10, 0.95)), url('../img/fotospro/Foto\ 12.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    animation: pulseGlow 3s ease-in-out infinite alternate;
+    z-index: 99;
+    padding: 5px 0;
+    box-shadow: 0 2px 10px rgba(197, 13, 13, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    transform: translateY(-10px);
+    display: block;
+}
+
+.promo-banner.show {
+    top: 70px;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.promo-banner.hide {
+    top: -50px;
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+@media (max-width: 768px) {
+    .promo-banner {
+        top: 60px;
+    }
+    
+    .promo-banner.show {
+        top: 60px;
+    }
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 5px rgba(197, 13, 13, 0.3); }
+  100% { box-shadow: 0 0 15px rgba(197, 13, 13, 0.5); }
+}
+
+.promo-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 5px 0;
+  flex-wrap: wrap;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.promo-content i {
+  font-size: 18px;
+  animation: flash 1.5s infinite;
+  color: #fff;
+}
+
+@keyframes flash {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0.5; }
+}
+
+.promo-text {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 5px;
+  color: #fff;
+}
+
+.promo-validity {
+  font-size: 11px;
+  opacity: 0.9;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.btn-promo {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.btn-promo:hover {
+  background: white;
+  color: #c50d0d;
+  transform: translateY(-2px);
+  text-decoration: none;
+  border-color: white;
+}
+
+/* Responsive banner */
+@media (max-width: 768px) {
+  .promo-content {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .promo-text {
+    font-size: 14px;
+    margin: 0;
+  }
+  
+  .btn-promo {
+    padding: 6px 16px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .promo-banner {
+    padding: 8px 0;
+  }
+  
+  .promo-content {
+    gap: 5px;
+  }
+  
+  .promo-text {
+    font-size: 13px;
+  }
+  
+  .promo-validity {
+    font-size: 11px;
+  }
+}
+
+
+.promo-close {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.2rem;
+  padding: 0;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.promo-close:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(90deg);
+}
+
+.promo-close i {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+@media (max-width: 768px) {
+  .promo-close {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      margin: 0;
+  }
+}

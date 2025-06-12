@@ -826,6 +826,9 @@ h3 {
 /* =============================================
    BANNER PROMOCIONAL - CSS
    ============================================= */
+/* =============================================
+   BANNER PROMOCIONAL - CSS
+   ============================================= */
 
    .promo-banner {
     background: linear-gradient(rgba(197, 13, 13, 0.95), rgba(160, 10, 10, 0.95)), url('../img/fotospro/Foto\ 12.jpg');
@@ -966,6 +969,44 @@ h3 {
   
   .promo-validity {
     font-size: 11px;
+  }
+}
+
+
+.promo-close {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.2rem;
+  padding: 0;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.promo-close:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(90deg);
+}
+
+.promo-close i {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+@media (max-width: 768px) {
+  .promo-close {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      margin: 0;
   }
 }
 
