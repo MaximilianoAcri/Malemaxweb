@@ -84,7 +84,7 @@
 }
 
 .page-title {
-    background: linear-gradient(rgba(0, 0, 0, 0.349), rgba(0, 0, 0, 0.123)), url('../img/FOTOS/SACOS.jpeg');
+    background: linear-gradient(rgba(0, 0, 0, 0.349), rgba(0, 0, 0, 0.123)), url('../img/fotospro/Foto\ 3.jpg');
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -1619,8 +1619,7 @@
 
     .mobile-nav-item {
         padding: 0.3rem 0.6rem;
-             font-size: 10px; /* Ajustar tamaño del ícono */
-         }
+        font-size: 10px; /* Ajustar tamaño del ícono */
     }
 }
 
@@ -1724,5 +1723,90 @@ body.mobile-nav-active .productos-section .row .col-lg-8 {
 
     .free-sample-cta .lead {
         font-size: 0.9rem;
+    }
+}
+
+/* Media queries para .page-title en dispositivos móviles */
+@media (max-width: 768px) {
+    .page-title {
+        background-attachment: scroll; /* Cambiar de fixed a scroll en móviles */
+        height: 100vh; /* Mantener altura completa en móviles */
+        min-height: 100vh;
+        padding: 120px 0 60px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .page-title .container {
+        padding: 0 20px;
+    }
+    
+    .page-title h1 {
+        font-size: 28px;
+        margin-bottom: 15px;
+        line-height: 1.3;
+    }
+    
+    .page-title p {
+        font-size: 16px;
+        margin-bottom: 25px;
+        line-height: 1.5;
+    }
+    
+    .page-title .action-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+    
+    .page-title .action-buttons .btn {
+        width: 100%;
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 576px) {
+    .page-title {
+        background-attachment: scroll;
+        height: 100vh;
+        min-height: 100vh;
+        padding: 100px 0 40px 0;
+    }
+    
+    .page-title h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        letter-spacing: 1px;
+    }
+    
+    .page-title p {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+    
+    .page-title .action-buttons .btn {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title {
+        height: 100vh;
+        min-height: 100vh;
+        padding: 80px 0 30px 0;
+    }
+    
+    .page-title h1 {
+        font-size: 20px;
+        padding: 0 10px;
+    }
+    
+    .page-title p {
+        font-size: 13px;
+        padding: 0 10px;
     }
 }
