@@ -2508,10 +2508,21 @@ section,
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
     padding: 120px 0;
     text-align: center;
     color: #fff;
     margin-bottom: 80px;
+    position: relative;
+    overflow: hidden;
+    will-change: transform; /* Optimización de rendimiento */
+  }
+
+  /* Fallback para dispositivos que no soportan background-attachment: fixed */
+  @supports not (background-attachment: fixed) {
+    .diseño-header {
+      background-attachment: scroll;
+    }
   }
   
   .about-title {
@@ -3838,5 +3849,71 @@ html, body {
 
   .stat-text {
     font-size: 0.8rem;
+  }
+}
+
+/* Estilos responsive específicos para .diseño-header */
+@media (max-width: 991px) {
+  .diseño-header {
+    padding: 80px 0;
+    background-attachment: scroll; /* Mejor rendimiento en tablets */
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+@media (max-width: 768px) {
+  .diseño-header {
+    padding: 120px 0 60px 0;
+    height: 100vh; /* Mantener altura completa en móviles */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-attachment: scroll; /* Mejor rendimiento en móviles */
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .diseño-header .container {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .diseño-header {
+    height: 100vh;
+    min-height: 100vh;
+    padding: 100px 0 40px 0;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+@media (max-width: 480px) {
+  .diseño-header {
+    height: 100vh;
+    min-height: 100vh;
+    padding: 80px 0 30px 0;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 576px) {
+  .diseño-header {
+    height: 100vh;
+    min-height: 100vh;
+    padding: 60px 0 20px 0;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 }
