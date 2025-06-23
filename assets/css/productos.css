@@ -1483,10 +1483,6 @@
     visibility: hidden;
 }
 
-.mobile-nav-item[data-category="big-bags"].active ~ .mobile-nav-scroll.sub-items {
-    display: none !important;
-    max-height: 0;
-}
 
 /* Ajustes para diferentes tamaños de pantalla */
 @media (max-width: 768px) {

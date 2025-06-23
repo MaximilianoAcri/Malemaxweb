@@ -2486,10 +2486,21 @@ section,
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
     padding: 120px 0;
     text-align: center;
     color: #fff;
     margin-bottom: 80px;
+    position: relative;
+    overflow: hidden;
+    will-change: transform; /* Optimización de rendimiento */
+  }
+
+  /* Fallback para dispositivos que no soportan background-attachment: fixed */
+  @supports not (background-attachment: fixed) {
+    .about-header {
+      background-attachment: scroll;
+    }
   }
   /* Header con efecto parallax */
   .diseño-header {
@@ -3636,6 +3647,10 @@ html, body {
 @media (max-width: 991px) {
   .about-header {
     padding: 80px 0;
+    background-attachment: scroll; /* Mejor rendimiento en tablets */
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .about-title {
@@ -3665,6 +3680,10 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-attachment: scroll; /* Mejor rendimiento en móviles */
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .about-header .container {
@@ -3712,6 +3731,10 @@ html, body {
     height: 100vh;
     min-height: 100vh;
     padding: 100px 0 40px 0;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .about-title {
@@ -3752,6 +3775,10 @@ html, body {
     height: 100vh;
     min-height: 100vh;
     padding: 80px 0 30px 0;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .about-title {
@@ -3775,5 +3802,41 @@ html, body {
 
   .stat-text {
     font-size: 0.9rem;
+  }
+}
+
+/* Ajustes específicos para orientación landscape en móviles */
+@media (orientation: landscape) and (max-height: 576px) {
+  .about-header {
+    height: 100vh;
+    min-height: 100vh;
+    padding: 60px 0 30px 0;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .about-title {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+
+  .about-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+
+  .about-header-stats {
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  .stat-number {
+    font-size: 1.6rem;
+  }
+
+  .stat-text {
+    font-size: 0.8rem;
   }
 }
