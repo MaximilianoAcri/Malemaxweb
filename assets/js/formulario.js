@@ -37,12 +37,28 @@ function handleFormSubmit(formId, formType) {
             if (data.status === 'success') {
                 // Disparar evento de conversión de Google Ads
                 if (typeof gtag !== 'undefined') {
+                    console.log('🎯 Disparando evento de conversión de Google Ads...');
                     gtag('event', 'conversion', {
                         'send_to': 'AW-17200535881/IRNHCNqc8d0aEMmy7YlA'
                     });
+                    console.log('✅ Evento de conversión disparado exitosamente');
+                } else {
+                    console.error('❌ gtag no está disponible');
                 }
                 
+                // Mostrar mensaje de éxito
+                Swal.fire({
+                    icon: 'success',
+                    title: '¡Mensaje enviado!',
+                    text: 'Nos pondremos en contacto contigo pronto.',
+                    confirmButtonColor: '#c50d0d'
+                });
+                
+                // Limpiar el formulario
+                form.reset();
+                
                 // Redirigir a la página de agradecimiento
+                console.log('🔄 Redirigiendo a página de agradecimiento...');
                 window.location.href = 'gracias.html';
             } else {
                 throw new Error(data.message);

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Tracking - MaleMax</title>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17200535881"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-17200535881');
+    </script>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .btn {
+            background: #c50d0d;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn:hover {
+            background: #8b0000;
+        }
+        .log {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Test de Tracking de Conversiones</h1>
+    
+    <div class="test-section">
+        <h2>1. Test de Evento Manual</h2>
+        <p>Haz clic en el botón para disparar manualmente el evento de conversión:</p>
+        <button class="btn" onclick="testManualConversion()">Disparar Evento de Conversión</button>
+        <div id="manual-log" class="log"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>2. Test de Botón WhatsApp</h2>
+        <p>Haz clic en el enlace de WhatsApp para probar el tracking:</p>
+        <a href="https://wa.me/5491135916710?text=Test" class="btn" target="_blank">
+            Test WhatsApp
+        </a>
+        <div id="whatsapp-log" class="log"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>3. Test de Formulario</h2>
+        <p>Envía este formulario de prueba:</p>
+        <form id="testForm">
+            <input type="text" placeholder="Nombre" required><br><br>
+            <input type="email" placeholder="Email" required><br><br>
+            <button type="submit" class="btn">Enviar Formulario</button>
+        </form>
+        <div id="form-log" class="log"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>4. Log de Eventos</h2>
+        <p>Eventos disparados en esta sesión:</p>
+        <div id="event-log" class="log"></div>
+    </div>
+
+    <script>
+        // Función para loggear eventos
+        function logEvent(message, logId = 'event-log') {
+            const log = document.getElementById(logId);
+            const timestamp = new Date().toLocaleTimeString();
+            log.innerHTML += `[${timestamp}] ${message}\n`;
+            log.scrollTop = log.scrollHeight;
+        }
+        
+        // Test de evento manual
+        function testManualConversion() {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-17200535881/IRNHCNqc8d0aEMmy7YlA'
+                });
+                logEvent('✅ Evento de conversión disparado manualmente', 'manual-log');
+                logEvent('✅ Evento de conversión disparado manualmente');
+            } else {
+                logEvent('❌ gtag no está disponible', 'manual-log');
+                logEvent('❌ gtag no está disponible');
+            }
+        }
+        
+        // Test de WhatsApp
+        function trackWhatsAppConversion() {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-17200535881/IRNHCNqc8d0aEMmy7YlA'
+                });
+                logEvent('✅ Evento de conversión disparado por WhatsApp', 'whatsapp-log');
+                logEvent('✅ Evento de conversión disparado por WhatsApp');
+            } else {
+                logEvent('❌ gtag no está disponible', 'whatsapp-log');
+                logEvent('❌ gtag no está disponible');
+            }
+        }
+        
+        // Agregar tracking a enlaces de WhatsApp
+        document.addEventListener('DOMContentLoaded', function() {
+            const whatsappLinks = document.querySelectorAll('a[href*="wa.me"]');
+            whatsappLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    trackWhatsAppConversion();
+                });
+            });
+        });
+        
+        // Test de formulario
+        document.getElementById('testForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-17200535881/IRNHCNqc8d0aEMmy7YlA'
+                });
+                logEvent('✅ Evento de conversión disparado por formulario', 'form-log');
+                logEvent('✅ Evento de conversión disparado por formulario');
+            } else {
+                logEvent('❌ gtag no está disponible', 'form-log');
+                logEvent('❌ gtag no está disponible');
+            }
+            
+            // Simular envío exitoso
+            setTimeout(() => {
+                window.location.href = 'gracias.html';
+            }, 1000);
+        });
+        
+        // Log inicial
+        logEvent('🚀 Página de test cargada');
+        if (typeof gtag !== 'undefined') {
+            logEvent('✅ gtag está disponible');
+        } else {
+            logEvent('❌ gtag NO está disponible');
+        }
+    </script>
+</body>
+</html> 
