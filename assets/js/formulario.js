@@ -35,20 +35,15 @@ function handleFormSubmit(formId, formType) {
         .then(response => response.json())
         .then(data => {
             if (data.status === 'success') {
-                // Mostrar mensaje de éxito
-                Swal.fire({
-                    icon: 'success',
-                    title: '¡Mensaje enviado!',
-                    text: 'Nos pondremos en contacto contigo pronto.',
-                    confirmButtonColor: '#c50d0d'
-                });
+                // Disparar evento de conversión de Google Ads
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'conversion', {
+                        'send_to': 'AW-17200535881/IRNHCNqc8d0aEMmy7YlA'
+                    });
+                }
                 
-                // Limpiar el formulario
-                form.reset();
-                
-                // Cerrar el modal
-                const modal = bootstrap.Modal.getInstance(document.getElementById('serviciosModal'));
-                modal.hide();
+                // Redirigir a la página de agradecimiento
+                window.location.href = 'gracias.html';
             } else {
                 throw new Error(data.message);
             }
