@@ -46,20 +46,32 @@ function handleFormSubmit(formId, formType) {
                     console.error('❌ gtag no está disponible');
                 }
                 
+                // Limpiar el formulario
+                form.reset();
+                
+                // Cerrar el modal si existe
+                const modal = bootstrap.Modal.getInstance(document.getElementById('serviciosModal'));
+                if (modal) {
+                    modal.hide();
+                }
+                
                 // Mostrar mensaje de éxito
                 Swal.fire({
                     icon: 'success',
                     title: '¡Mensaje enviado!',
                     text: 'Nos pondremos en contacto contigo pronto.',
-                    confirmButtonColor: '#c50d0d'
+                    confirmButtonColor: '#c50d0d',
+                    allowOutsideClick: false,
+                    allowEscapeKey: false,
+                    timer: 2000, // Auto-cerrar después de 2 segundos
+                    timerProgressBar: true
                 });
                 
-                // Limpiar el formulario
-                form.reset();
-                
-                // Redirigir a la página de agradecimiento
-                console.log('🔄 Redirigiendo a página de agradecimiento...');
-                window.location.href = 'gracias.html';
+                // Redirigir después de 2.5 segundos (un poco más que el timer)
+                setTimeout(() => {
+                    console.log('🔄 Redirigiendo a página de agradecimiento...');
+                    window.location.href = 'gracias.html';
+                }, 2500);
             } else {
                 throw new Error(data.message);
             }
